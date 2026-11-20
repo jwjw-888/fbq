@@ -1,0 +1,1615 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>戏份盘点</title>
+<meta name="theme-color" content="#0e0e11">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="凤不栖">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+:root{color-scheme:dark;--bg:#0e0e11;--bg2:#15151a;--card:#17171c;--ink:#ece8df;--mute:#8d8a85;--line:#2a2a31;--accent:#d9b56c;--accent2:#d9b56c;--chip:#202027;--bar:linear-gradient(90deg,#8a6a2f,#e0bf7a);--glow:rgba(201,163,92,.14);--pink:#ff4fa3}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;color:var(--ink);font:15px/1.55 -apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif;
+ background:radial-gradient(900px 420px at 15% -10%,var(--glow),transparent 70%),radial-gradient(700px 360px at 100% 0,rgba(90,110,160,.10),transparent 70%),var(--bg);min-height:100vh;-webkit-font-smoothing:antialiased}
+header{padding:34px 20px 14px;max-width:1840px;margin:0 auto;display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;justify-content:space-between}
+h1{font:600 28px/1.2 "Songti SC","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;margin:0;letter-spacing:.16em;color:#f3ecd9}
+h1::after{content:"";display:block;width:44px;height:2px;margin-top:10px;background:var(--accent)}
+h1 small{display:block;font:400 12px/1 sans-serif;letter-spacing:.08em;color:var(--mute);margin:8px 0 0}
+main{max-width:1840px;margin:0 auto;padding:0 20px 70px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+button,select,input,textarea{font:inherit;color:inherit}
+button{border:1px solid var(--line);background:transparent;padding:7px 14px;border-radius:6px;cursor:pointer;color:var(--ink);transition:.18s;letter-spacing:.03em}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.primary{background:var(--accent);border-color:var(--accent);color:#2a2208;font-weight:600}
+button.primary:hover{background:#f5e0aa;color:#2a2208}
+button.danger{color:#d98a7a}
+button.danger:hover{border-color:#d98a7a;color:#e8a798}
+select,input,textarea{border:1px solid var(--line);background:#101014;padding:7px 10px;border-radius:6px;min-width:0;outline:none;transition:border-color .18s}
+select:focus,input:focus,textarea:focus{border-color:var(--accent)}
+.card{background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:12px;padding:20px;margin-top:14px;box-shadow:0 20px 50px -30px #000}
+.card h2{font-size:16px;margin:0 0 12px}
+.tabs{display:flex;gap:26px;margin:16px 0 0;padding:0 4px}
+.tabs button{border:0;border-bottom:2px solid transparent;border-radius:0;background:none;padding:8px 2px;color:var(--mute);letter-spacing:.12em}
+.tabs button.on{border-color:var(--accent);color:var(--accent)}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{padding:10px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;white-space:nowrap}
+td.wrap{white-space:nowrap}
+th{font-weight:500;color:var(--mute);font-size:12px;letter-spacing:.12em;border-bottom-color:#3a3a43}
+tfoot th{color:var(--accent);font-size:13px;border-bottom:0}
+tr.row:hover{background:rgba(255,255,255,.07)}
+.chip{display:inline-block;background:var(--chip);border:1px solid #2c2c34;border-radius:4px;padding:0 8px;margin:2px 3px 2px 0;font-size:12.5px;color:#d8d3c8}
+.chip.z{opacity:.55;border:1px dashed #55555e;background:none}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.meter{height:6px;background:#23232a;border-radius:3px;min-width:120px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--bar);border-radius:3px}
+.sum{display:flex;gap:12px;flex-wrap:wrap}
+.sum div{background:#121217;border:1px solid var(--line);border-radius:10px;padding:12px 18px;min-width:110px}
+.sum b{display:block;font:600 24px/1.2 "Songti SC","Noto Serif CJK SC",serif;color:#f3ecd9}
+.sum span{font-size:12px;color:var(--mute);letter-spacing:.06em}
+dialog{border:1px solid #34343c;border-radius:14px;background:#141418;color:var(--ink);padding:22px;width:min(720px,94vw);max-height:92vh;box-shadow:0 30px 80px -20px #000}
+dialog::backdrop{background:rgba(0,0,0,.65);backdrop-filter:blur(3px)}
+dialog h2{font:600 18px "Songti SC","Noto Serif CJK SC",serif;letter-spacing:.1em;color:#f3ecd9}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+label{display:block;font-size:12px;color:var(--mute);letter-spacing:.06em}
+label input,label select,label textarea{display:block;width:100%;margin-top:4px;font-size:15px;color:var(--ink)}
+.roles{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.roles button{padding:3px 12px;border-radius:999px;font-size:13px;color:#bbb6ab}
+.roles button.s1{background:var(--accent);border-color:var(--accent);color:#2a2208;font-weight:600}
+.roles button.s2{border-style:dashed;border-color:var(--accent);color:var(--accent)}
+.hint{font-size:12px;color:var(--mute)}
+.opt{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+.opt .chip button{border:0;background:none;padding:0 0 0 6px;color:var(--mute)}
+.opt .chip button.rn{padding:0 2px 0 6px}
+.add{display:flex;gap:6px;margin-top:6px}
+.add input{flex:1}
+.foot{margin-top:18px;display:flex;justify-content:flex-end;gap:8px}
+.adm[hidden],[hidden]{display:none!important}
+.chip.pink{background:var(--pink);border-color:var(--pink);color:#3b0a66;font-weight:600;box-shadow:0 0 10px rgba(255,79,163,.45)}
+.chip.pink.z{background:none;color:#3b0a66;box-shadow:none;border-style:dashed;opacity:1}
+.roles button.pink{border-color:var(--pink);color:var(--pink)}
+.roles button.pink.s1{background:var(--pink);border-color:var(--pink);color:#fff}
+.roles button.pink.s2{border-style:dashed}
+tr.pinkrow td b{color:#3b0a66;background:var(--pink);padding:2px 10px;border-radius:4px;box-shadow:0 0 10px rgba(255,79,163,.4)}
+tr.pinkrow .meter i{background:linear-gradient(90deg,#d83686,#ff7cc0)}
+.sortb{padding:3px 12px;font-size:13px}.sortb.on{background:linear-gradient(180deg,#fbefc6,#ecd196);border-color:#fbefc6;color:#2a210a;font-weight:600}
+.empty{color:var(--mute);padding:28px;text-align:center}
+::-webkit-scrollbar{height:8px;width:8px}::-webkit-scrollbar-thumb{background:#33333b;border-radius:4px}
+/* --- 提亮:标题 / 选中状态 --- */
+h1{display:inline-block;font-size:34px;font-weight:700;letter-spacing:.18em;padding:10px 26px 10px 28px;color:#2a210a;
+ background:linear-gradient(135deg,#fbefc6 0%,#f0d58f 55%,#e3bf6a 100%);border-radius:8px;
+ box-shadow:0 10px 30px -8px rgba(255,226,150,.45),inset 0 1px 0 rgba(255,255,255,.7)}
+h1::after{display:none}
+h1 small{color:#6b5a2c;letter-spacing:.06em;font-weight:500}
+.tabs button.on{background:linear-gradient(180deg,#fbefc6,#ecd196);color:#2a210a;border-radius:8px 8px 0 0;border-color:#fbefc6;font-weight:700;padding:8px 18px}
+.tabs button:not(.on){padding:8px 18px}
+.tabs button:not(.on):hover{color:#fbefc6}
+select:focus,input:focus,textarea:focus{border-color:#fbefc6;box-shadow:0 0 0 3px rgba(251,239,198,.28);background:#1b1b21}
+select:hover,input:hover,textarea:hover{border-color:#cfcfc8}
+tr.row:hover{background:rgba(251,239,198,.11);box-shadow:inset 3px 0 0 #fbefc6}
+button:hover{border-color:#fbefc6;color:#fbefc6;background:rgba(251,239,198,.08)}
+button.primary:hover{background:#fff1c8;color:#2a210a}
+.roles button.s1{background:linear-gradient(180deg,#fbefc6,#ecd196);border-color:#fbefc6;color:#2a210a;box-shadow:0 0 12px rgba(251,239,198,.4)}
+.roles button.s2{border-color:#fbefc6;color:#fbefc6}
+.roles button:hover{border-color:#fbefc6}
+.roles button.pink.s1{background:var(--pink);border-color:#ff9ccc;color:#3b0a66;box-shadow:0 0 12px rgba(255,79,163,.55)}
+dialog{border-color:#3a3a43}
+@media(max-width:600px){header{padding-top:24px}h1{font-size:23px}.card{padding:14px}}
+/* --- 以 app 方式开启时避开刘海 / 状态栏 / 底部横条 --- */
+header{padding-top:calc(34px + env(safe-area-inset-top));padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+main{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:calc(70px + env(safe-area-inset-bottom))}
+@media(max-width:600px){header{padding-top:calc(24px + env(safe-area-inset-top))}}
+/* --- 顶部横幅 --- */
+.banner{position:relative;display:flex;align-items:flex-end;min-height:clamp(120px,16vw,205px);
+ background:linear-gradient(135deg,#2a1414,#0e0e11 70%)}
+.banner::before{content:"";position:absolute;inset:0;pointer-events:none;
+ background:linear-gradient(90deg,rgba(14,14,17,.9) 0,rgba(14,14,17,.6) 36%,rgba(14,14,17,0) 66%),
+  linear-gradient(180deg,rgba(14,14,17,0) 66%,var(--bg) 100%)}
+.banner header{position:relative;width:100%;flex-direction:row;align-items:flex-end;justify-content:space-between;
+ gap:12px 20px;padding:calc(env(safe-area-inset-top) + 16px) 20px 16px}
+.banner h1{padding:0;background:none;box-shadow:none;border-radius:0;font-size:clamp(24px,3.6vw,38px);letter-spacing:.2em;
+ color:#fbefc6;text-shadow:0 2px 14px rgba(0,0,0,.65)}
+.banner h1 small{color:#cdbf94;font-size:12px;letter-spacing:.08em;text-shadow:none}
+.banner h1 small:empty{display:none}
+.banner .bar button:not(.primary){background:rgba(14,14,17,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+@media(max-width:600px){
+ .banner{min-height:0;background-size:100% auto;background-position:50% 0}
+ .banner::before{background:linear-gradient(180deg,rgba(14,14,17,0) 0,rgba(14,14,17,0) calc(29.50vw - 50px),rgba(14,14,17,.8) calc(29.50vw - 8px),var(--bg) calc(29.50vw + 1px))}
+ .banner header{flex-direction:column;align-items:flex-start;gap:10px;padding:calc(29.50vw - 34px) 14px 12px}
+ .banner h1{font-size:23px;letter-spacing:.12em}
+ .banner .bar{gap:5px}
+ .banner .bar button{padding:4px 9px;font-size:13px}
+}
+/* --- 手机:卡片排版,不用左右滑动 --- */
+.mcards{display:none}
+.sc-card,.st-card{background:#121217;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px}
+.sc-card:active{background:#1a1a21}
+.sc-card .h,.st-card .h{display:flex;align-items:baseline;gap:10px}
+.sc-card .h b{color:var(--accent);font-size:16px}
+.sc-card .h span{color:var(--ink);font-size:14px}
+.sc-card .h em{margin-left:auto;font-style:normal;font:600 19px/1 "Songti SC","Noto Serif CJK SC",serif;color:#f3ecd9;font-variant-numeric:tabular-nums}
+.sc-card .h small{font:400 11px sans-serif;color:var(--mute);margin-left:2px}
+.sc-card .m{margin-top:5px;font-size:12.5px;color:var(--mute)}
+.sc-card .t{margin-top:6px;font-size:15px;line-height:1.5}
+.sc-card .c{margin-top:8px}
+.mcards .tot{color:var(--accent);font-size:13px;padding:2px 4px 6px}
+.st-card .h{margin-bottom:8px}
+.st-card .no{color:var(--mute);font-size:12px;min-width:18px}
+.st-card .h b{font-size:16px}
+.st-card .r{display:flex;align-items:baseline;gap:8px;margin:6px 0 4px;font-size:13px}
+.st-card .r span{color:var(--mute);min-width:32px}
+.st-card .r strong{font:600 17px/1 "Songti SC","Noto Serif CJK SC",serif;color:#f3ecd9}
+.st-card .r em{margin-left:auto;font-style:normal;color:var(--accent);font-variant-numeric:tabular-nums}
+.st-card.pinkrow .h b{color:#3b0a66;background:var(--pink);padding:2px 10px;border-radius:4px;box-shadow:0 0 10px rgba(255,79,163,.4)}
+.st-card.pinkrow .meter i{background:linear-gradient(90deg,#d83686,#ff7cc0)}
+/* 排版切换:默认电脑版(表格),选「手机版」后套用卡片排版 */
+.tabrow{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:6px 12px}
+.vsw{display:flex;align-items:center;gap:6px;margin-top:16px;padding-bottom:6px}
+.vsw .hint{margin-right:2px}
+.vsw button{padding:3px 12px;font-size:13px;border-radius:999px;color:var(--mute)}
+.vsw button.on{background:linear-gradient(180deg,#fbefc6,#ecd196);border-color:#fbefc6;color:#2a210a;font-weight:600}
+body.mview main{max-width:600px;padding:0 12px 50px}
+body.mview .mtable{display:none}
+body.mview .mcards{display:block}
+body.mview .tabs{gap:14px}
+.pie{padding:4px 0 6px}
+.pie h3{margin:6px 0 4px;font:600 18px "Songti SC","Noto Serif CJK SC",serif;color:#f3ecd9;letter-spacing:.1em}
+.pie h3 small{display:block;font:400 12px sans-serif;color:var(--mute);letter-spacing:.04em;margin-top:4px}
+.pieby{margin:6px 0 2px;align-items:center}
+.pieby button{padding:3px 12px;font-size:13px;border-radius:999px;color:var(--mute)}
+.pieby button.on{background:linear-gradient(180deg,#fbefc6,#ecd196);border-color:#fbefc6;color:#2a210a;font-weight:600}
+.note{margin:14px auto 4px;max-width:560px;padding:12px 14px;border:1px solid #3a3a43;border-left:3px solid var(--accent);border-radius:8px;background:#1b1b21;font-size:13px;line-height:1.7;color:var(--ink)}
+#vStats>.note{max-width:none;margin:0 0 14px}
+.note b{display:block;color:var(--accent);margin-bottom:2px;letter-spacing:.06em}
+.note p{margin:3px 0;color:#cfcac0}
+.note .hl{color:var(--accent);font-weight:700}
+.piebtn{margin-top:16px;margin-bottom:6px;padding:3px 14px;font-size:13px;border-radius:999px;color:var(--mute)}
+.piebtn.on{background:linear-gradient(180deg,#fbefc6,#ecd196);border-color:#fbefc6;color:#2a210a;font-weight:600}
+.epbtn{margin-left:10px;padding:6px 16px;font-size:14px;font-weight:700;border-radius:999px;border:1px solid #fbefc6;background:linear-gradient(180deg,#fbefc6,#e5bf6c);color:#2a210a;box-shadow:0 0 0 0 rgba(251,239,198,.7),0 3px 10px rgba(217,181,108,.35);animation:epglow 2.4s ease-out infinite}
+/* 手机上:管理按钮排成一行,放不下就左右滑动,不换行 */
+@media(max-width:700px){header .bar{flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding-bottom:4px;scrollbar-width:none}header .bar::-webkit-scrollbar{display:none}header .bar button{flex:none;white-space:nowrap;padding:6px 10px;font-size:13px}}
+.sortbar{flex-wrap:nowrap;gap:6px}
+.sortbar .hint{white-space:nowrap}
+.sortbar button{white-space:nowrap;flex:none}
+@media(max-width:480px){.epbtn{margin-left:0;padding:5px 9px;font-size:13px}.sortb{padding:3px 9px}.sortbar .hint{display:none}.sortbar{gap:5px}}
+@media(max-width:350px){.sortbar .hint{display:none}.epbtn{padding:5px 8px;font-size:12px}}
+.epbtn:hover{filter:brightness(1.06);color:#2a210a}
+@keyframes epglow{0%{box-shadow:0 0 0 0 rgba(251,239,198,.65),0 3px 10px rgba(217,181,108,.35)}70%,100%{box-shadow:0 0 0 10px rgba(251,239,198,0),0 3px 10px rgba(217,181,108,.35)}}
+@media(prefers-reduced-motion:reduce){.epbtn{animation:none}}
+#ddlg .foot{flex-wrap:nowrap}
+#ddlg .foot button{white-space:nowrap;flex:none}
+#ddlg .foot #ddBack{background:#3b4a9a;border-color:#6b7bd6;color:#fff;font-weight:600}
+#ddlg .foot #ddBack:hover{background:#4a5bb8;border-color:#9aa7ee;color:#fff}
+.rolelink{cursor:pointer}
+b.rolelink{border-bottom:1px dotted var(--accent);padding-bottom:1px}
+b.rolelink::after{content:" ›";color:var(--accent);font-weight:400}
+/* 其他角色(非祝阮/阮卿卿)的标签:深蓝灰底 #282e52 */
+.chip.rc:not(.pink),#ddlg .chip.rc:not(.pink){background:#282e52;border-color:#4a5388;color:#e9ecff}
+.chip.rolelink:hover{border-color:var(--accent);color:#fff3d1}
+.rolehint{margin:0 0 8px;font-size:12.5px;color:#cbbf9e}
+.rolehint b{color:var(--accent)}
+.rolelink:hover{text-decoration:underline;text-underline-offset:3px}
+#rdlg{width:min(560px,94vw);max-height:86vh;padding:14px 16px;border-radius:12px;border:1px solid #6d6880;background:linear-gradient(160deg,#3d394b,#2d2b38);color:#f2eefb;box-shadow:0 24px 60px -16px #000}
+#rdlg::backdrop{background:rgba(0,0,0,.55)}
+#rdlg h2{margin:0 0 4px;font-size:17px;color:#fff3d1}
+.rdsum{font-size:13px;color:#d9d4e6;margin-bottom:8px;display:flex;flex-wrap:wrap;gap:6px 16px}
+.rdsum b{color:#fff3d1;font-size:15px}
+.rdlist{max-height:58vh;overflow:auto;border-top:1px solid rgba(255,255,255,.18)}
+.rrow{display:grid;grid-template-columns:96px 74px 54px 1fr;gap:8px;align-items:baseline;padding:8px 2px;border-bottom:1px solid rgba(255,255,255,.12);cursor:pointer;font-size:13px}
+.rrow:hover{background:rgba(255,255,255,.08)}
+.rrow b{color:#fff3d1}
+.rrow .pg{text-align:right;font-variant-numeric:tabular-nums}
+.rrow .sm{color:#cfc9de;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:520px){.rrow{grid-template-columns:84px 1fr 52px}.rrow .sm{grid-column:1/-1}}
+.epc{margin-top:18px}
+.epc h3{margin:0 0 4px;font:600 16px "Songti SC","Noto Serif CJK SC",serif;color:#f3ecd9;letter-spacing:.1em}
+.eprow{cursor:pointer}#epBarDlg{width:min(720px,94vw);padding:18px}.ebh{display:flex;align-items:baseline;gap:12px;margin-bottom:12px}.ebh b{font-size:18px}.ebh small{color:var(--mute);flex:1}.ebx{background:#24242b;color:var(--ink);border:1px solid #3a3a43;border-radius:8px;padding:5px 12px}.ebbar{display:flex;height:58px;border-radius:8px;overflow:hidden;background:#101014}.ebbar div{display:flex;flex-direction:column;align-items:center;justify-content:center;font:600 13px/1.25 sans-serif;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6);overflow:hidden;white-space:nowrap;border-right:1px solid #17171c}.ebbar div span:last-child{font-size:11px;font-weight:500}.ebl{margin-top:12px}.ebr{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:14px;border-bottom:1px solid #26262d}.ebr i{width:12px;height:12px;border-radius:3px;flex:none}.ebr b{flex:1}.ebr span{color:var(--mute);font-size:13px}.ebm{color:var(--mute);font-size:12px;line-height:1.7;padding:6px 0 0 20px}
+.epleg{display:flex;flex-wrap:wrap;gap:4px 14px;margin:6px 0 10px;font-size:12.5px;color:var(--ink)}
+.epleg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.eprow{display:grid;grid-template-columns:96px 1fr;gap:10px;align-items:center;padding:5px 0}
+.eplab{font-size:13px;line-height:1.3}.eplab small{display:block;color:var(--mute);font-size:11px}
+.epbar{display:flex;height:26px;border-radius:5px;overflow:hidden;background:#101014}
+.epbar div{display:flex;align-items:center;justify-content:center;font:600 11px sans-serif;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6);overflow:hidden;white-space:nowrap;border-right:1px solid #17171c;min-width:0}
+.pieback,.coback{font-size:14px;font-weight:600;padding:6px 16px;border-radius:999px;color:var(--accent);border:1px solid var(--accent);background:rgba(217,181,108,.12);margin-top:4px}
+.pieback:hover,.coback:hover{background:rgba(217,181,108,.24);color:#fbefc6;border-color:#fbefc6}
+.pie svg{display:block;width:100%;max-width:520px;height:auto;margin:6px auto}
+.pie .pl{fill:#fff;font:700 15px sans-serif;paint-order:stroke;stroke:rgba(0,0,0,.55);stroke-width:3px;stroke-linejoin:round}
+.pie .pl.p2{font-size:13px;font-weight:600}
+.pie .pl.out{font-size:13px;fill:var(--ink);stroke:#17171c}
+.plegend{list-style:none;margin:8px auto 0;padding:0;max-width:520px}
+.plegend li{display:flex;align-items:center;gap:10px;padding:8px 4px;border-bottom:1px solid #2f2f37}
+.plegend i{width:14px;height:14px;border-radius:4px;flex:none}
+.plegend b{font-weight:600;flex:1}
+.plegend span{color:var(--mute);font-size:13px}
+.plegend em{font-style:normal;min-width:52px;text-align:right;font-variant-numeric:tabular-nums}
+.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,16px);z-index:99999;max-width:min(92vw,520px);padding:12px 18px;border-radius:12px;font:600 16px/1.4 sans-serif;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:.2s;display:flex;align-items:center;gap:10px}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.toast.busy{background:#2b4f8f}
+.toast.ok{background:#1f7a46}
+.toast.fail{background:#b3261e;pointer-events:auto;cursor:pointer}
+.toast.busy::before{content:"";width:16px;height:16px;border:3px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:sp .8s linear infinite;flex:none}
+.toast.ok::before{content:"✓";font-size:18px}
+.toast.fail::before{content:"✕";font-size:18px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.srow{display:flex;gap:8px;align-items:flex-end;flex:1 1 280px}
+.srow>label:first-child{flex:1;min-width:0}
+.srow input#fQ{width:100%;box-sizing:border-box}
+.pchk{display:flex!important;flex-direction:row!important;align-items:center;gap:6px;white-space:nowrap;padding:8px 10px;border:1px solid var(--line);border-radius:6px;cursor:pointer;color:var(--ink);font-size:14px;background:#101014}
+.pchk input{width:auto;margin:0;accent-color:var(--accent)}
+/* 筛选区:手机版卡片、或手机屏幕上(不论哪种排版)都是 三个选单一排 + 搜寻独占一行 */
+body.mview .card > .bar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+body.mview .card > .bar label select{padding:7px 6px;font-size:14px}
+body.mview .card > .bar label.full,body.mview .card > .bar .srow{grid-column:1/-1}
+@media(max-width:700px){
+ .card > .bar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .card > .bar label select{padding:7px 6px;font-size:14px}
+ .card > .bar label.full,.card > .bar .srow{grid-column:1/-1}
+}
+/* 祝阮/阮卿卿:亮金色字(底色略加深,金字才看得清) */
+:root{--gold:#fff3c4;--goldshadow:0 1px 2px rgba(120,0,60,.6),0 0 1px rgba(120,0,60,.6)}
+.chip.pink{background:var(--pink);border-color:var(--pink);color:var(--gold);text-shadow:var(--goldshadow)}
+.chip.pink.z{background:none;border-color:var(--pink);color:var(--gold);text-shadow:none}
+.roles button.pink{color:var(--gold)}
+.roles button.pink.s1,.roles button.pink.s2{color:var(--gold)}
+.roles button.pink.s1{background:var(--pink);border-color:#ff9ccc;text-shadow:var(--goldshadow)}
+tr.pinkrow td b,.st-card.pinkrow .h b{color:var(--gold);background:var(--pink);text-shadow:var(--goldshadow)}
+/* 现场照片 */
+.pbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:6px}
+#pPrev{display:block;margin-top:8px;max-width:100%;max-height:200px;border-radius:8px;border:1px solid var(--line);object-fit:contain;background:#0b0b0e}
+#ddPhoto{margin:0 0 8px}
+#ddPhoto img{display:block;width:100%;max-height:260px;object-fit:contain;background:#1f1d28;border-radius:7px;border:1px solid rgba(255,255,255,.14);cursor:zoom-in}
+#ddlg.hasPhoto{width:min(440px,94vw)}
+#pdlg{width:auto;max-width:96vw;padding:6px;background:#000;border-color:#555;cursor:zoom-out}
+#pdlg img{display:block;max-width:calc(96vw - 12px);max-height:calc(92vh - 12px);object-fit:contain;border-radius:8px}
+.sc-photo{display:block;width:100%;max-height:190px;object-fit:cover;border-radius:8px;margin-top:8px;border:1px solid var(--line);cursor:zoom-in}
+.cam{position:absolute;left:0;top:12px;font-size:7px;line-height:1;opacity:.9;pointer-events:none} /* 贴在行首、不占位,不会撑大栏位 */
+/* 左右滑动时,日期/集/场 三栏固定在左边,方便对照后面的内容 */
+#vScenes .mtable thead th:nth-child(-n+2),#vScenes .mtable tbody td:nth-child(-n+2){position:sticky;background:#17171c;z-index:2}
+#vScenes .mtable thead th:nth-child(-n+2){z-index:3;background:#1b1b21}
+#vScenes .mtable thead th:nth-child(1),#vScenes .mtable tbody td:nth-child(1){left:0}
+#vScenes .mtable thead th:nth-child(2),#vScenes .mtable tbody td:nth-child(2){left:var(--l2,70px)}
+#vScenes .mtable thead th:nth-child(2),#vScenes .mtable tbody td:nth-child(2){box-shadow:6px 0 8px -6px rgba(0,0,0,.7);border-right:1px solid #3a3a43}
+#vScenes .mtable tbody tr.row:hover td:nth-child(-n+2){background:#2a2923}
+.sc-card .h .cam{position:static;font-size:12px;margin-right:-4px}
+/* 场次表:行与行之间的分隔线加深 */
+#vScenes tbody td{border-bottom:1px solid #5c5c68}
+#vScenes tbody tr:last-child td{border-bottom-color:#7a7a86}
+tr.row{cursor:pointer}
+th.sortable{cursor:pointer;user-select:none;-webkit-user-select:none;transition:color .15s}
+th.sortable:hover{color:var(--ink)}
+th.sortable.sorted{color:var(--accent)}
+th.sortable i{display:inline-block;width:1.1em;font-style:normal;font-size:10px;text-align:center;color:var(--accent)}
+body.mview .sc-card{cursor:default}
+body.mview.adminOn .sc-card{cursor:pointer}
+.hintCard{display:none}
+body.mview .hintTable{display:none}
+body.mview .hintCard{display:block}
+/* 场次详情小视窗 */
+#ddlg{width:min(300px,94vw);padding:11px 12px;border-radius:10px;border-color:#6d6880;
+ background:linear-gradient(160deg,#3d394b,#2d2b38);box-shadow:0 24px 60px -16px #000}
+#ddlg h2{margin:0 0 7px;font-size:14px;color:#fff3d1}
+/* 信息格子:短的挤在同一行,长的(主/次场景)各占半行,总共约 3 行 */
+.dgrid{display:flex;flex-wrap:wrap;gap:4px}
+.dgrid div{flex:1 1 auto;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:3px 7px;min-width:0}
+.dgrid div.wide{flex:1 1 28%}
+.dgrid span{display:block;font-size:9.5px;line-height:1.3;color:#b9b4c6;letter-spacing:.03em;white-space:nowrap}
+.dgrid b{display:block;font-weight:500;font-size:12px;line-height:1.3;overflow-wrap:anywhere;color:#fff}
+.dgrid .nv,.dtext .nv{color:#8a8599;font-style:normal}
+.dsec{margin-top:7px}
+.dsec>span{display:block;font-size:9.5px;color:#b9b4c6;letter-spacing:.03em;margin-bottom:3px}
+.dtext{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:4px 8px;font-size:12px;white-space:pre-wrap;line-height:1.45;overflow-wrap:anywhere;color:#fff}
+#ddlg .roles{gap:4px}
+#ddlg .chip{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.22);color:#f2eefb;font-size:10.5px;line-height:1.5;padding:0 6px;margin:0}
+#ddlg .chip.pink{background:var(--pink);border-color:var(--pink);color:var(--gold)}
+#ddlg .hint{color:#b9b4c6;font-size:11px}
+#ddlg .foot{margin-top:8px;gap:5px}
+#ddlg .foot button{padding:3px 11px;font-size:12px}
+#ddlg .foot button:not(.primary){background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.28)}
+/* 统计摘要:四个小框同一排,各有不同底色 */
+.sum{flex-wrap:nowrap;gap:8px}
+.sum div{flex:0 1 auto;min-width:0;padding:9px 14px;border-radius:9px}
+.sum b{font-size:19px;line-height:1.25;overflow-wrap:anywhere}
+.sum span{display:block;font-size:11px;letter-spacing:.04em;margin-top:1px;color:rgba(236,232,223,.62)}
+.sum div:nth-child(1){background:rgba(217,181,108,.15);border-color:rgba(217,181,108,.4)}
+.sum div:nth-child(1) b{color:#f5e0aa}
+.sum div:nth-child(2){background:rgba(110,150,225,.15);border-color:rgba(110,150,225,.4)}
+.sum div:nth-child(2) b{color:#c3d5fa}
+.sum div:nth-child(3){background:rgba(255,79,163,.13);border-color:rgba(255,79,163,.38)}
+.sum div:nth-child(3) b{color:#ffbddb}
+.sum div:nth-child(4){background:rgba(80,190,160,.14);border-color:rgba(80,190,160,.38)}
+.sum div:nth-child(4) b{color:#b0ead8;font-size:16px}
+@media(max-width:600px){
+ .sum{gap:6px}
+ .sum div{flex:1 1 auto;padding:7px 8px}
+ .sum b{font-size:16px}
+ .sum div:nth-child(4) b{font-size:13px}
+ .sum span{font-size:10.5px;letter-spacing:0}
+}
+.tabs button{white-space:nowrap}
+@media(max-width:700px){.tabs,body.mview .tabs{gap:4px}.tabs button.on,.tabs button:not(.on){padding:8px 11px;letter-spacing:.02em;font-size:14px}}
+.sum div{white-space:nowrap}
+.sum div b{overflow-wrap:normal}
+.sum div{flex:1 1 0}
+@media(max-width:700px){.sum div{padding:9px 8px;text-align:center}}
+.dedup{margin:8px 0 0;font-size:13px;color:var(--mute)}
+.dedup b{color:var(--accent);display:inline}
+@media(min-width:701px){.topbtns .epbtn{flex:none!important}}
+.topbtns{margin:0 0 12px;gap:8px}.topbtns .epbtn{margin-left:0;flex:1 1 0;text-align:center}
+.copage{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.copage .st-card{margin:0}
+.coq{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.rolesel{font-family:inherit;font-weight:700;font-size:16px;line-height:1.2;padding:7px 32px 7px 12px;border-radius:6px;border:1.5px solid #7b8be0;color:#e9ecff;background-color:#282e52;box-shadow:0 0 0 3px rgba(123,139,224,.18);appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23e9ecff' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 11px center}
+.rolesel option{background:#17171c;color:#f3ecd9;font-weight:400}
+.coq{flex-wrap:nowrap!important;gap:6px!important;white-space:nowrap}
+.coq .rolesel{font-size:16px;padding:6px 30px 6px 11px}
+@media(max-width:430px){.coq{font-size:12px}.coq .rolesel{font-size:15px;padding:6px 28px 6px 11px}}
+
+.schbar{margin-top:8px}.schbar .hint{white-space:nowrap;display:inline!important}
+.schq{width:100%;box-sizing:border-box;margin:10px 0 2px;padding:10px 12px;font-size:15px;border-radius:8px;border:1px solid var(--line);background:#121217;color:var(--ink)}
+.pl-gh{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin:18px 0 8px;padding:0 2px 6px;border-bottom:1px solid #3a3a43}
+.pl-gh b{font-size:16px;color:var(--accent)}.pl-gh.pink b{color:var(--pink)}
+.pl-gh span{font-size:12.5px;color:var(--mute)}.pl-gh em{margin-left:auto;font-style:normal;font-size:13px;color:#e9e3d3;white-space:nowrap}
+.pl-note{margin:0 0 8px;padding:6px 10px;border-radius:6px;background:rgba(255,160,40,.12);border:1px solid rgba(255,160,40,.35);font-size:13px;color:#ffd9a0}
+.pl-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.pl-tr{grid-column:1/-1;text-align:center;font-size:12px;color:#ffc000;border-top:1px dashed rgba(255,192,0,.5);padding-top:4px;margin-top:-2px}
+.pl-card{background:#121217;border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.pl-card.shot{border-color:rgba(80,190,160,.45)}
+.pl-card .h{display:flex;align-items:baseline;gap:8px}
+.pl-card .h b{color:var(--accent);font-size:16px}.pl-card .h span{font-size:14px}
+.pl-card .h em{margin-left:auto;font-style:normal;font:600 18px/1 "Songti SC","Noto Serif CJK SC",serif;color:#f3ecd9}
+.pl-card .h small{font:400 11px sans-serif;color:var(--mute);margin-left:2px}
+.ckgrp{display:flex;flex-direction:column;gap:2px;flex:none}.diffck b{font-weight:600;color:var(--accent,#e8c47a);margin-left:4px;font-size:12px}.diffck{display:flex!important;flex-direction:row!important;align-items:center;gap:6px;white-space:nowrap;flex:none;margin-top:4px;padding:0 4px;color:var(--text,inherit);font-size:13px}.diffck input{width:auto!important;height:auto!important;margin:0}
+.pl-tbl .pl-diff{min-width:150px;margin-top:5px}.pl-diff.pl-over{background:#007979;color:#fff}.pl-diff.pl-new{background:#708069;color:#fff}.pl-diff{margin-top:6px;padding:5px 8px;border-radius:6px;background:rgba(248,113,113,.15);color:#fca5a5;font-size:12px;line-height:1.5;font-weight:600;white-space:normal}
+.pl-shot{font-style:normal;font-size:11px;padding:0 6px;border-radius:4px;background:rgba(80,190,160,.18);border:1px solid rgba(80,190,160,.5);color:#b0ead8}
+.npsum{margin:12px 0;padding:12px 14px;border:1px solid var(--line,#3a3a44);border-radius:12px;background:#708069;color:#fff;font-size:14px;line-height:1.7}.npsum b{display:block;font-size:15px}.npsum span{margin-right:14px;white-space:nowrap}
+.pl-card .tags,.sc-card .tags{margin-top:6px;display:flex;flex-wrap:wrap;gap:5px}
+.pl-tag{font-size:12px;padding:0 7px;border-radius:4px;border:1px solid #3a3a43;color:#cfcac0}
+.pl-tag.dt{color:var(--mute)}.pl-tag.nt{background:#1b2b52;border-color:#4a6bb8;color:#cfe0ff}.pl-tag.dy{background:rgba(217,181,108,.14);border-color:rgba(217,181,108,.45);color:#f0d9a0}
+.pl-card .m{margin-top:6px;font-size:12.5px;color:var(--mute)}
+.pl-card .hn{margin-top:4px;font-size:12.5px;color:#ffc27a}
+.pl-card .t{margin-top:6px;font-size:15px;line-height:1.5}
+.pl-card .c{margin-top:8px}
+
+.pl-cards{display:none}body.mview .pl-cards{display:block}
+.pl-tbl{width:max-content;border-collapse:collapse;font-size:13.5px}
+.pl-tbl th{position:sticky;top:0;background:#1b1b21;color:var(--mute);font-weight:500;text-align:left;padding:8px 10px;white-space:nowrap;border-bottom:1px solid #3a3a43}
+.pl-tbl td{padding:8px 10px;vertical-align:top;border-bottom:1px solid #5c5c68;white-space:nowrap}
+.pl-tbl td.wrap{white-space:normal;min-width:110px;max-width:240px}
+.pl-tbl td.num,.pl-tbl th.num{text-align:right}
+.pl-tbl .dfx{margin-left:4px;color:#ef2b2b;font:900 16px/1 sans-serif;font-style:normal}.pl-tbl td.dfc{min-width:200px}.pl-tbl td.dfc .pl-diff{margin-top:0}
+.pl-tbl td.hn{color:#ffc27a}.pl-tbl td.ntc{background:#1b2b52;color:#cfe0ff}
+.pl-tbl .c1,.pl-tbl .c2{position:sticky;background:#17171c;z-index:2}
+.pl-tbl th.c1,.pl-tbl th.c2{background:#1b1b21;z-index:3}
+.pl-tbl .c1{left:0;min-width:70px;width:70px}.pl-tbl .c2{left:70px;min-width:44px;box-shadow:6px 0 8px -6px rgba(0,0,0,.7);border-right:1px solid #3a3a43}
+.pl-tbl small{color:var(--mute)}
+.pl-tbl tr.shotrow td.c1,.pl-tbl tr.shotrow td.c2{box-shadow:inset 3px 0 0 rgba(80,190,160,.7)}
+.pl-tbl .pl-shot{margin-left:5px}
+.pl-gtr td{background:#1f1f27!important;padding:10px 12px!important;position:static!important;white-space:normal!important}
+.pl-gtr b{color:var(--accent);font-size:15px}.pl-gtr.pink b{color:var(--pink)}.pl-gtr span{color:var(--mute);font-size:12.5px;margin-left:8px}.pl-gtr .gn{color:#ffd9a0}
+.pl-gtr em{float:right;font-style:normal;color:#e9e3d3;font-size:13px}
+.pl-ttr td{text-align:center;color:#ffc000;font-size:12px;border-top:1px dashed rgba(255,192,0,.5);background:rgba(255,192,0,.05)}
+.pl-tbl td.sm{min-width:200px;max-width:300px}
+
+.schf{display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end}
+.schf .srow{flex:1 1 280px}.schf .srow>label:first-child{flex:1;min-width:0}.schf input#sQ{width:100%;box-sizing:border-box}
+body.mview .schf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+body.mview .schf label select{padding:7px 6px;font-size:14px}
+body.mview .schf .srow{grid-column:1/-1}
+@media(max-width:700px){.schf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.schf label select{padding:7px 6px;font-size:14px}.schf .srow{grid-column:1/-1}}
+.pl-tbl th.sortable{cursor:pointer;user-select:none}.pl-tbl th.sorted{color:var(--accent)}.pl-tbl th i{font-style:normal;font-size:10px;margin-left:3px}
+.pl-tbl tfoot th{position:static;color:var(--accent);font-size:13px;border-top:1px solid #3a3a43;border-bottom:0}
+
+.plbar table{min-width:680px}
+.plbar th:nth-child(-n+2),.plbar td:nth-child(-n+2){position:sticky;background:#17171c;z-index:2}
+.plbar th:nth-child(-n+2){background:#1b1b21;z-index:3}
+.plbar th:nth-child(1),.plbar td:nth-child(1){left:0;min-width:44px;width:44px}
+.plbar td:nth-child(2) b{display:inline-block;text-align:center}
+.plbar th:nth-child(2),.plbar td:nth-child(2){left:44px;min-width:92px;width:92px;white-space:normal;box-shadow:6px 0 8px -6px rgba(0,0,0,.7);border-right:1px solid #3a3a43}
+
+label .datebtn{margin-top:4px}
+.datebtn{display:block;width:100%;box-sizing:border-box;text-align:left;border:1px solid var(--line);background:#101014;color:var(--ink);padding:7px 10px;border-radius:6px;font-size:15px;line-height:21px;cursor:pointer;position:relative}
+.datebtn:after{content:"";position:absolute;right:11px;top:50%;width:6px;height:6px;border-right:2px solid var(--mute);border-bottom:2px solid var(--mute);transform:translateY(-70%) rotate(45deg)}
+.datebtn.set{border-color:var(--accent);color:#fbefc6}
+body.mview .card>.bar .datebtn{font-size:14px;line-height:19px;padding:7px 6px}
+@media(max-width:700px){.card>.bar .datebtn{font-size:14px;line-height:19px;padding:7px 6px}}
+#calDlg,#epDlg,#roDlg{width:min(340px,92vw);padding:16px}
+.rog{display:flex;flex-wrap:wrap;gap:6px;max-height:50vh;overflow:auto}.rog button{border:1px solid #34343c;background:#1b1b21;color:#f3ecd9;border-radius:8px;padding:7px 10px;font-size:14px;cursor:pointer;white-space:nowrap}.rog button i{font-style:normal;font-size:11px;color:var(--accent);margin-left:5px}.rog button.on{background:linear-gradient(180deg,#fbefc6,#e5bf6c);color:#2a210a;border-color:#fbefc6;font-weight:700}.rog button.on i{color:#2a210a}
+.calg.epg{grid-template-columns:repeat(5,1fr)}
+.calh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.calh b{font-size:16px;color:#f3ecd9}.calh button{width:38px;height:34px;font-size:20px;border-radius:8px}
+.calh button:disabled{opacity:.3}
+.calw,.calg{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.calw span{font-size:12px;color:var(--mute);padding:4px 0}
+.cd{position:relative;height:42px;padding:0;border-radius:8px;border:1px solid transparent;background:none;color:#5d5d68;font-size:15px}
+.cd.has{color:#f3ecd9;background:#1b1b21;border-color:#34343c;cursor:pointer}
+.cd.has i{display:block;font-style:normal;font-size:10px;line-height:1;color:var(--accent);margin-top:2px}
+.cd.on{background:linear-gradient(180deg,#fbefc6,#e5bf6c);color:#2a210a;border-color:#fbefc6;font-weight:700}.cd.on i{color:#2a210a}
+.calf{display:flex;gap:8px;justify-content:space-between;margin-top:12px}
+.nplan{margin-left:4px;color:#ff6b4a;font:normal 13px/1 sans-serif;font-style:normal;vertical-align:baseline}
+.noplan td,.sc-card.noplan .h,.sc-card.noplan .h b,.sc-card.noplan .m,.sc-card.noplan .t{color:#ff9a7a}
+.mtable .dfx,.sc-card .dfx{margin-left:4px;color:#ef2b2b;font:900 16px/1 sans-serif;font-style:normal}.mtable td.dfc{min-width:200px}.mtable td.dfc .pl-diff{margin-top:0}
+.npbar{display:flex;flex-wrap:wrap;gap:0 18px}@media(max-width:560px){.npbar{gap:0 6px}.npbar .npleg{font-size:10px;gap:3px;margin:6px 0 8px}.npbar .npleg input{width:14px;height:14px}.npbar .npleg i{margin-right:0}}
+.npleg{display:flex;align-items:center;gap:6px;margin:6px 2px 8px;font-size:13px;color:#ff6b4a;cursor:pointer}.npleg input{accent-color:#ff6b4a;width:16px;height:16px;margin:0}.npleg i{color:#ff6b4a;font-style:normal;margin-right:4px}
+/* 凤不栖:没有横幅图片,标题区收窄;隐藏照片勾选;角色名不换行 */
+.banner{min-height:0!important}
+.banner header{padding:calc(env(safe-area-inset-top) + 18px) 20px 14px!important;flex-direction:row!important;align-items:center!important}
+.pchk[hidden]{display:none!important}
+.chip,.rname,td a,td button{white-space:nowrap}
+</style>
+</head>
+<body>
+<div class="banner">
+<header>
+  <h1 id="title">戏份盘点<small id="saved"></small></h1>
+  <div class="bar">
+    <button class="primary adm" id="addScene" hidden>+ 新增场次</button>
+    <button class="adm" id="manage" hidden>选单/角色管理</button>
+    <button class="adm" id="exp" hidden>导出 JSON</button>
+    <button id="csv">导出 CSV</button>
+    <button class="adm" id="imp" hidden>导入 JSON</button>
+    <button class="adm danger" id="reset" hidden>还原网站数据</button>
+    <button id="login" style="display:none">管理员登录</button>
+    <button id="logout" class="danger" hidden>退出管理员</button>
+    <input type="file" id="file" accept=".json" hidden>
+  </div>
+</header>
+</div>
+<main>
+  <div class="tabrow">
+    <div class="tabs"><button data-t="scenes" class="on">场次表</button><button data-t="stats">戏份占比</button></div>
+    <div class="vsw" role="group" aria-label="排版"><span class="hint">排版</span><button data-v="table" class="on">电脑版</button><button data-v="card">手机版</button></div>
+    <button type="button" class="piebtn" id="pieBtn" hidden>圆饼图</button>
+  </div>
+
+  <div class="card" style="margin-top:0;border-top-left-radius:0;border-top-right-radius:0">
+    <div class="bar" id="filterBar" style="margin-bottom:12px">
+      <label>集数<button type="button" id="fEpBtn" class="datebtn">全部</button><input type="hidden" id="fEp" value=""></label>
+      <label hidden>拍摄日期<button type="button" id="fDateBtn" class="datebtn">全部</button><input type="hidden" id="fDate" value=""></label>
+      <label>角色<button type="button" id="fRoBtn" class="datebtn">全部</button><input type="hidden" id="fRole" value=""></label>
+      <div class="full srow"><label>搜寻<input id="fQ" placeholder="场景、内容…"></label><label class="pchk" hidden><input type="checkbox" id="fPhoto">📷 只看有照片</label></div>
+    </div>
+    <div id="vScenes" class="scroll"></div>
+    <div id="vStats" hidden></div>
+  </div>
+</main>
+
+<dialog id="dlg">
+  <form method="dialog" id="form">
+    <h2 id="dTitle" style="margin-top:0">场次</h2>
+    <div class="grid">
+      <label>拍摄日期<input name="d1" type="date" min="2026-01-01" max="2027-12-31"></label>
+      <label>截止日期<input name="d2" type="date" min="2026-01-01" max="2027-12-31"><span class="hint" style="margin-top:3px">备注:未跨日,不需要选</span></label>
+      <label>集数<select name="ep" required><option value="">请选择</option></select></label>
+      <label>场号<input name="sc" required placeholder="如 4C、26A"></label>
+      <label>景光<input name="light" list="l-light"></label>
+      <label>景别(地点)<input name="place" list="l-place"></label>
+      <label>主场景<input name="main" list="l-main"></label>
+      <label>次场景<input name="sub" list="l-sub"></label>
+      <label>页数<input name="pages" placeholder="0.5;闪回填 /"></label>
+    </div>
+    <label style="margin-top:10px">内容概要<textarea name="summary" rows="2"></textarea></label>
+    <div style="margin-top:12px" id="photoBox">
+      <label>现场照片(选填,拍摄时的场景)</label>
+      <div class="pbar">
+        <input type="file" id="pFile" accept="image/*" hidden>
+        <button type="button" id="pPick">上传图片</button>
+        <button type="button" class="danger" id="pClear" hidden>移除照片</button>
+        <span class="hint" id="pHint">上传后会自动压缩,不会占太多空间。</span>
+      </div>
+      <img id="pPrev" alt="现场照片预览" hidden>
+    </div>
+    <div style="margin-top:12px">
+      <label>有戏份的角色</label>
+      <div class="hint">点一下选中=该角色在此场有戏(计入本场页数),再点一下取消。空白=没有戏份。</div>
+      <div class="roles" id="dRoles"></div>
+    </div>
+    <div class="foot">
+      <button type="button" class="danger" id="dDel">删除此场</button>
+      <span style="flex:1"></span>
+      <button type="button" id="dCancel">取消</button>
+      <button class="primary" id="dSave">储存</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="roDlg"><div class="cal"><div class="calh" style="justify-content:center"><b>选择角色</b></div><div class="rog" id="roGrid"></div><p class="hint" id="roSel" style="margin:8px 0;color:var(--accent,#e8c47a)"></p><div class="calf"><button type="button" id="roClear">清除(显示全部)</button><button type="button" id="roClose">完成</button></div><p class="hint" style="margin:8px 0 0">可以选好几位:选多位时,只显示这几位<b>同时出现</b>的场次。数字是该角色的场数。</p></div></dialog>
+<dialog id="epDlg"><div class="cal"><div class="calh" style="justify-content:center"><b>选择集数</b></div><div class="calg epg" id="epGrid"></div><p class="hint" id="epSel" style="margin:8px 0;color:var(--accent,#e8c47a)"></p><div class="calf"><button type="button" id="epClear">清除(显示全部)</button><button type="button" id="epClose">完成</button></div><p class="hint" style="margin:8px 0 0">可以选好几集:点一下选取,再点一下取消。数字下面的金色小数字是那一集的场数。</p></div></dialog>
+<dialog id="calDlg"><div class="cal"><div class="calh"><button type="button" id="calPrev">‹</button><b id="calTitle"></b><button type="button" id="calNext">›</button></div><div class="calw"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div><div class="calg" id="calGrid"></div><p class="hint" id="calSel" style="margin:0 0 8px;color:var(--accent,#e8c47a)"></p><div class="calf"><button type="button" id="calClear">清除(显示全部)</button><button type="button" id="calClose">完成</button></div><p class="hint" style="margin:8px 0 0">可以选好几天:点一下选取,再点一下取消。亮色的日子有场次,日期下面的金色数字是当天场数。</p></div></dialog>
+<dialog id="pdlg"><img id="pBig" alt="现场照片"></dialog>
+
+<dialog id="ddlg">
+  <h2 id="ddTitle">场次</h2>
+  <div id="ddPhoto" hidden><img alt="现场照片" title="点一下看大图"></div>
+  <div class="dgrid" id="ddGrid"></div>
+  <div class="dsec"><span>内容概要</span><div class="dtext" id="ddSum"></div></div>
+  <div class="dsec"><span id="ddCastLab">有戏份的角色</span><div class="roles" id="ddCast" style="margin-top:0"></div></div>
+  <div class="foot">
+    <button type="button" id="ddBack" hidden></button>
+    <button type="button" class="primary" id="ddEdit" hidden>编辑此场</button>
+    <button type="button" id="ddClose">关闭</button>
+  </div>
+</dialog>
+
+<dialog id="rdlg">
+  <h2 id="rdTitle">角色</h2>
+  <div class="rdsum" id="rdSum"></div>
+  <div class="rdlist" id="rdList"></div>
+  <div class="foot"><button type="button" id="rdClose">关闭</button></div>
+</dialog>
+
+<dialog id="mdlg">
+  <h2 style="margin-top:0">选单/角色管理</h2>
+  <p class="hint">选单选项会自动收录场次里出现过的内容;这里可以额外预设选项。删除选项不会改动既有场次。</p>
+  <div id="mBody"></div>
+  <div class="foot"><button id="mCancel">取消</button><button class="primary" id="mClose">完成</button></div>
+</dialog>
+
+<dialog id="ldlg">
+  <form id="lform">
+    <h2 style="margin-top:0">管理员登录</h2>
+    <label>账号<input name="u" autocomplete="username" required></label>
+    <label style="margin-top:10px">密码<input name="p" type="password" autocomplete="current-password" required></label>
+    <label style="margin-top:10px" id="tokRow" hidden>GitHub 令牌(每台设备第一次登录时填一次)<input name="t" type="password" autocomplete="off" placeholder="github_pat_…"></label>
+    <div id="lerr" class="hint" style="color:var(--accent);min-height:18px;margin-top:8px"></div>
+    <div class="foot" style="margin-top:6px"><button type="button" id="lCancel">取消</button><button class="primary">登录</button></div>
+  </form>
+</dialog>
+
+<datalist id="l-date"></datalist><datalist id="l-light"></datalist><datalist id="l-place"></datalist><datalist id="l-main"></datalist><datalist id="l-sub"></datalist>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script id="seed" type="application/json">{"title": "凤不栖戏份盘点", "roles": ["秦长歌/明霜", "萧缺", "玉自熙", "江照薇", "素玄", "楚非欢", "萧探", "苏穆"], "scenes": [], "opts": {"light": [], "place": [], "main": [], "sub": []}}</script>
+<script>
+const KEY='fbq-v1';
+let S={title:'戏份盘点',roles:[],scenes:[],opts:{light:[],place:[],main:[],sub:[]}};
+let ADMIN=false;
+let tab='scenes', editing=null, draft={}, PIE=false, EPV=false, PREVTAB='scenes', PIEBY='p', CV=false, CLEAD='秦长歌/明霜';
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt=n=>(Math.round(n*100)/100).toString();
+const PINK='秦长歌/明霜';
+const cut=s=>String(s||'').replace(/\n/g,' ');
+
+/* ---- 数据来源 ----
+   SERVER=true:网站有 Cloudflare 数据库(/api/data),所有人看到同一份,管理员改了立刻同步给大家。
+   SERVER=false:没有数据库(例如本机直接打开),退回「只存在这个浏览器」的旧做法,仍可用。 */
+let SERVER=false,REV=0,TOK='';
+/* GitHub 模式:网站放在 GitHub Pages(静态)时,数据就是仓库里的 data.json。
+   所有人打开时直接从 GitHub 读最新的 data.json;管理员保存时把它提交回仓库,所以大家看到的永远是同一份。 */
+const GH_REPO='jwjw-888/fbq',GH_FILE='data.json',GH_API='https://api.github.com/repos/'+GH_REPO+'/contents/'+GH_FILE;
+const GHMODE=/^https?:$/.test(location.protocol)&&/\.github\.io$/.test(location.hostname);
+let GHSHA='',GHTOK='',GHBASE=null;const SHAS=new Set();
+try{GHTOK=localStorage.getItem('fbq-gh')||''}catch(_){}
+const b64d=b=>new TextDecoder().decode(Uint8Array.from(atob(b.replace(/\s/g,'')),c=>c.charCodeAt(0)));
+const b64e=t=>{let b='';new TextEncoder().encode(t).forEach(c=>b+=String.fromCharCode(c));return btoa(b)};
+/* 令牌用「账号|密码」加密后存在 data.json 的 sec 栏位:其他管理员只输账号密码,就能解开并保存。 */
+const u8=b=>Uint8Array.from(atob(b),c=>c.charCodeAt(0));
+const b64u=a=>{let b='';a.forEach(c=>b+=String.fromCharCode(c));return btoa(b)};
+async function secKey(pw,salt){
+  const m=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:600000,hash:'SHA-256'},m,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+}
+async function secSeal(tok,pw){
+  const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));
+  const ct=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv},await secKey(pw,salt),new TextEncoder().encode(tok)));
+  return b64u([...salt,...iv,...ct]);
+}
+async function secOpen(blob,pw){
+  try{
+    const a=u8(blob),salt=a.slice(0,16),iv=a.slice(16,28),ct=a.slice(28);
+    return new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv},await secKey(pw,salt),ct));
+  }catch(e){return null}
+}
+const PHCACHE={}; // 刚上传的照片:部署完成前先用本机的图显示
+const phSrc=p=>PHCACHE[p]||p;
+async function uploadPhotoGH(dataUrl){ // 照片存进仓库 photos/ 资料夹,data.json 里只记路径
+  const path='photos/'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)+'.jpg';
+  let last=0;
+  for(let i=0;i<5;i++){
+    const r=await fetch('https://api.github.com/repos/'+GH_REPO+'/contents/'+path,{method:'PUT',headers:{accept:'application/vnd.github+json',authorization:'Bearer '+GHTOK,'content-type':'application/json'},
+      body:JSON.stringify({message:'网站上传照片',content:dataUrl.split(',')[1],branch:'main'})});
+    if(r.ok){PHCACHE[path]=dataUrl;return path}
+    last=r.status;
+    if(r.status===401||r.status===403||r.status===404)break;
+    await new Promise(z=>setTimeout(z,1200*(i+1))); // GitHub 正在更新分支时稍等再试
+  }
+  throw new Error('上传照片失败('+last+')');
+}
+async function fetchGH(auth,fresh){ // fresh=true:保存时用,绝不读缓存;否则用「条件请求」,没变化时 GitHub 回 304,不占读取次数
+  if(auth===undefined)auth=true; // 有令牌就带上(读取次数限制宽很多)
+  try{
+    const h={accept:'application/vnd.github+json'};
+    if(auth&&GHTOK)h.authorization='Bearer '+GHTOK;
+    const go=()=>fetch(GH_API+'?ref=main'+(fresh?'&t='+Date.now():''),{headers:h,cache:fresh?'no-store':'no-cache'});
+    let r=await go();
+    if(r.status===401&&h.authorization){delete h.authorization;r=await go()} // 令牌失效也要能读
+    if(!r.ok)return null;
+    const j=await r.json();
+    return {sha:j.sha,data:JSON.parse(b64d(j.content))};
+  }catch(e){return null}
+}
+try{TOK=sessionStorage.getItem('fbq-tok')||''}catch(_){}
+function adopt(d){
+  S=Object.assign({opts:{}},d);
+  S.scenes.forEach(s=>{for(const r in s.cast)if(s.cast[r]!==1)delete s.cast[r]});
+  S.opts=Object.assign({light:[],place:[],main:[],sub:[]},S.opts);
+}
+async function fetchServer(){
+  try{
+    const r=await fetch('/api/data',{cache:'no-store'});
+    if(!r.ok)return null;
+    const j=await r.json();
+    return j&&typeof j.rev==='number'?j:null;
+  }catch(e){return null}
+}
+async function load(){
+  let d=null;
+  const sv=GHMODE?null:await fetchServer();
+  if(sv){SERVER=true;REV=sv.rev;d=sv.data}
+  if(GHMODE){const g=await fetchGH();if(g){setBase(g.sha,g.data);d=g.data}}
+  if(!d){ // 没有服务器数据(或还没人存过):沿用 本地修改 → data.json → 内建数据
+    if(!GHMODE)try{d=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+    if(!d){
+      try{const r=await fetch('data.json',{cache:'no-cache'});if(r.ok)d=await r.json()}catch(e){}
+    }
+    if(!d)d=JSON.parse($('#seed').textContent);
+  }
+  adopt(d);
+  if(SERVER&&!TOK)ADMIN=false; // 服务器模式下,没有通过服务器验证就不是管理员
+  if(GHMODE&&!GHTOK)ADMIN=false;
+  if(GHMODE)document.body.classList.add('gh');
+  $('#saved').textContent='';
+  render();
+}
+/* 同步状态:屏幕下方的大提示(同步中=蓝、成功=绿、失败=红,失败要点一下才收起) */
+(function(){
+  const t=$('#toast'),src=$('#saved');let timer=0;
+  new MutationObserver(()=>{
+    const x=src.textContent.trim();clearTimeout(timer);
+    if(!x){t.classList.remove('on');return}
+    const kind=/^同步中/.test(x)?'busy':/失败|无法/.test(x)?'fail':'ok';
+    t.className='toast on '+kind;t.textContent=x+(kind==='fail'?'(点一下关闭)':'');
+    if(kind==='ok')timer=setTimeout(()=>t.classList.remove('on'),4000);
+  }).observe(src,{childList:true,characterData:true,subtree:true});
+  t.onclick=()=>{if(t.classList.contains('fail'))t.classList.remove('on')};
+})();
+/* 回到页面时自动拉取别人的更新(没有开着窗口、也不在保存时才换) */
+async function refreshFromServer(){
+  if(GHMODE){
+    if(pushing||document.querySelector('dialog[open]'))return;
+    const g=await fetchGH();
+    if(g&&g.sha!==GHSHA&&!SHAS.has(g.sha)){setBase(g.sha,g.data);adopt(g.data);render()}
+    return;
+  }
+  if(!SERVER||pushing||document.querySelector('dialog[open]'))return;
+  const sv=await fetchServer();
+  if(sv&&sv.data&&sv.rev!==REV){REV=sv.rev;adopt(sv.data);render()}
+}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')refreshFromServer()});
+setInterval(()=>{if(document.visibilityState==='visible')refreshFromServer()},20000);
+
+const authHdr=()=>({authorization:'Bearer '+TOK});
+let pushing=false,pushQ=Promise.resolve();
+async function uploadPhotoData(dataUrl){ // 把 data:image/jpeg;base64,... 传到服务器,换回网址
+  const blob=await (await fetch(dataUrl)).blob();
+  const r=await fetch('/api/photo',{method:'POST',headers:{...authHdr(),'content-type':'image/jpeg'},body:blob});
+  if(!r.ok)throw new Error('photo '+r.status);
+  return (await r.json()).url;
+}
+function pushServer(){
+  pushQ=pushQ.then(async()=>{
+    pushing=true;$('#saved').textContent='同步中…';
+    try{
+      for(const s of S.scenes)if(s.photo&&s.photo.startsWith('data:'))s.photo=await uploadPhotoData(s.photo); // 旧的本地照片一并搬上去
+      const r=await fetch('/api/data',{method:'PUT',headers:{...authHdr(),'content-type':'application/json'},body:JSON.stringify({baseRev:REV,data:S})});
+      if(r.ok){REV=(await r.json()).rev;$('#saved').textContent='已同步,所有人都看得到'}
+      else if(r.status===409){
+        $('#saved').textContent='';pushing=false;
+        alert('别人刚刚更新过数据,你这次的修改没有保存。\n页面会重新载入最新内容,请再改一次。');
+        await load();
+      }
+      else if(r.status===401){
+        $('#saved').textContent='';doLogout();
+        alert('管理员验证失效,请重新登录后再试。');
+      }
+      else if(r.status===413)$('#saved').textContent='数据太大,没有同步(请减少照片)';
+      else $('#saved').textContent='同步失败,请稍后再试';
+    }catch(e){$('#saved').textContent='同步失败(网络),请稍后再试'}
+    pushing=false;
+  });
+  return pushQ;
+}
+function mergeData(base,mine,theirs){ // 三方合并:我改过的以我为准,其余用别人最新的
+  const J=x=>JSON.stringify(x),out=JSON.parse(J(theirs));
+  for(const k of Object.keys(mine))if(k!=='scenes'&&J(mine[k])!==J(base[k]))out[k]=mine[k];
+  const bm=new Map(base.scenes.map(x=>[x.id,x])),mm=new Map(mine.scenes.map(x=>[x.id,x]));
+  let sc=theirs.scenes.filter(x=>{ // 我删掉的场次(基准里有、我这里没有)就删
+    return !(bm.has(x.id)&&!mm.has(x.id)&&J(bm.get(x.id))===J(x)) });
+  const idx=new Map(sc.map((x,n)=>[x.id,n]));
+  for(const x of mine.scenes){
+    const b=bm.get(x.id);
+    if(b&&J(b)===J(x))continue; // 我没改过:保留别人的版本
+    if(idx.has(x.id))sc[idx.get(x.id)]=x;else sc.push(x); // 我改过或新增:用我的
+  }
+  out.scenes=sc;return out;
+}
+function setBase(sha,data){GHSHA=sha;GHBASE=JSON.parse(JSON.stringify(data));SHAS.add(sha)}
+function pushGH(){
+  pushQ=pushQ.then(async()=>{
+    pushing=true;$('#saved').textContent='同步中…';
+    const sleep=ms=>new Promise(z=>setTimeout(z,ms));
+    try{
+      if(!GHSHA||!GHBASE){ // 打开页面时没读到 GitHub 的版本(例如读取被限制):先补读
+        const c=await fetchGH(true,true);
+        if(!c){$('#saved').textContent='同步失败:读不到 GitHub 上的最新数据,请稍后再试';pushing=false;return}
+        S=mergeData(c.data,S,c.data);setBase(c.sha,c.data);
+      }
+      for(const x of S.scenes)if(x.photo&&String(x.photo).startsWith('data:'))x.photo=await uploadPhotoGH(x.photo);
+      let done=false,merged=false;
+      for(let i=0;i<7&&!done;i++){
+        const out=JSON.parse(JSON.stringify(S));
+        const r=await fetch(GH_API,{method:'PUT',headers:{accept:'application/vnd.github+json',authorization:'Bearer '+GHTOK,'content-type':'application/json'},
+          body:JSON.stringify({message:'网站更新数据 '+new Date().toISOString().slice(0,16).replace('T',' '),content:b64e(JSON.stringify(out,null,1)+'\n'),sha:GHSHA,branch:'main'})});
+        if(r.ok){setBase((await r.json()).content.sha,out);done=true;break}
+        if(r.status===409||r.status===422){ // 版本对不上:可能是别人刚改过,也可能只是 GitHub 还在更新
+          await sleep(1200*(i+1));
+          const cur=await fetchGH(true,true);
+          if(!cur||cur.sha===GHSHA||SHAS.has(cur.sha))continue; // 暂时的/读到旧版:稍后再试
+          S=mergeData(GHBASE,S,cur.data);setBase(cur.sha,cur.data);merged=true;render();
+          continue;
+        }
+        if(r.status===401||r.status===403||r.status===404){
+          $('#saved').textContent='';
+          try{localStorage.removeItem('fbq-gh')}catch(_){}
+          GHTOK='';doLogout();
+          alert('GitHub 令牌无效、已过期或没有写入权限。请仓库主人用新的令牌重新登录一次。');
+          pushing=false;return;
+        }
+        $('#saved').textContent='同步失败('+r.status+'),请稍后再试';pushing=false;return;
+      }
+      $('#saved').textContent=done?(merged?'已同步(已合并别的管理员的更新)':'已同步到 GitHub,所有人打开都是最新的'):'同步失败,请稍后再试';
+    }catch(e){$('#saved').textContent='同步失败:'+(e&&e.message?e.message:'网络问题')+',请稍后再试'}
+    pushing=false;
+  });
+  return pushQ;
+}
+function save(){
+  if(GHMODE){if(ADMIN&&GHTOK)pushGH();return}
+  let ok=true;
+  try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){ok=false} // 本地备份
+  if(SERVER){if(ADMIN&&TOK)pushServer();return}
+  $('#saved').textContent=ok?'已储存於此浏览器':'无法储存(请用导出 JSON 备份)';
+}
+function commit(){save();render()}
+
+const num=v=>typeof v==='number'?v:null;
+function pageOf(sc,r){return sc.cast[r]===1?(num(sc.pages)||0):0}
+/* 搜寻不分繁简:把繁体字都换成简体再比对(两边都换,所以输入繁体或简体都搜得到) */
+const T2S=(()=>{const t="喪為舉樂書亂產傷蘭內擊匱單賣廳縣場奪婦孫宮對崗師帶庫開棄張搶攔掙換摑擲攤殺樹殯滿爛爺牘狀狹瘋箋簽絕脅節羋蔦萊鶯虜觀計認訊許訟證誕趙鋪閃聞隊陸陳難驛魘鮮鳶鳴愛罷備筆邊賓補參蠶倉側測層長廠車稱寵處傳創從擔膽黨導燈鄧敵遞點電釣調東動鬥獨讀賭斷發髮範飛費紛風豐負復該蓋幹趕個鞏貢溝構購顧關廣歸規貴國過漢號閡賀後護華劃懷壞歡環還黃會燬獲禍機積極幾擠記際繼價堅間艱檢減薦劍見將獎講醬階結盡進驚靜鏡舊據劇捲決覺剋課誇塊寬虧擴來賴藍覽淚離裡禮歷麗連聯練糧涼兩遼臨靈劉龍樓盧錄論羅媽馬買麥貓夢麼門們彌麵廟滅憫謀腦鬧寧擬釀鳥聶農濃歐盤龐噴闢憑評頻颯氣遷錢強橋親輕傾請慶窮區權勸確讓熱榮絨紹設攝審聲勝時識實適勢飾試壽獸樞輸屬數帥雙誰說絲歲損臺壇歎湯體條鐵聽統頭圖塗團廢萬網衛偉緯問臥無務霧習係戲細現線鄉響項嚮懸學尋壓鴨亞嚴顏驗陽楊養樣搖藥葉頁業儀藝議憶陰蔭銀飲隱應嬰營優郵猶遊憂與語獄預園員緣遠願約閱雲運醞雜災載贊髒責則擇賊贈閘齋債氈戰漲帳這陣鎮爭徵鄭織職執紙誌質鍾種眾週豬諸築著莊裝壯準濁資總縱組寢輩氫纏鋒塵諾齒暫憲牽標飄撲蘋罰頓遲靂廚獻棲鐘懲顯賢險綫鄰殘慘蒼滄艙蟲誠盜燭畫話滬謊懼鑒驕嬌膠腳較饑嘆顆啟鬱癥漿縫墳綱鋼烏鑰鬆悶謎濕釋蘇獅穩襲韓毀捨陝疊鐮壘煉綠滾濱罵憐蕭鑼鴻償薩鵝儘彎貝筍蛻遺賤緊謹類戀攏緩綻閒譽艷逕窩鴛鴦囑穫縮訪詞詩訴診詐詢詭詳誤誘諒諷謠謝譜譯譴贏贖趨躍軌軍軒軟輛輪輯轉轟辦辭迴選遙醫釘針鈴鈔鉤鉅銅銘銷錯錶鍵鎖鎭鏈鑄閉闖隨隻雖雞頂順須頑頒領頗題額飯飼餅餘館驅骯鬍魚魯鳳鴿鵑鷹鹽齊齡龜嬸姪嫵嫻媯孃寶專屆屍嶺嶽巖幣幫幟廂廈彈彙徑徹悅惡惱慾憊懇懶戶搾摯撈撥擁擾攜斂斃斕曆曉暉朧枴柵棗棧楓槍樁橫檔檯櫃櫻欄欽殲毆漁滲漸澀濟濤濫瀏瀝灣燙燦爐爍爲牆牠犧猙玆瑪瑣璽甌畢畝疇痙癡碩碼磚礎禦禪秈稈稅稜穎窪窺竄競篤簡籃籌籤粵糞糾紀級紡紮紳終紼絆絞絡給經綁綜維綴綵綸綽緋緒緘緝編緻縈縊縐縛繞繡繩繪繭繳辮續纜羈羨義翹聖聰肅脈脣腎腫腸膚膩臉臟興艦茲莖葷蓮蔔蔣蕩薑薔藉蘊蘆蘿虛蝦蝸螢蟻衝裏製複襯觸訂託訝訣訥詆詔詛詫詮詰誅誼諂談諍諜諧諫諮諱諳諺謂謄謗謙謨譁譏變讚豈貞財販貪貧貨貫貯貳貶貸貼貿賁賂賃賄賅賈賑賜賞賠賦賬賺賽贅贓跡踐踴蹟蹤軀軋輔",s="丧为举乐书乱产伤兰内击匮单卖厅县场夺妇孙宫对岗师带库开弃张抢拦挣换掴掷摊杀树殡满烂爷牍状狭疯笺签绝胁节芈茑莱莺虏观计认讯许讼证诞赵铺闪闻队陆陈难驿魇鲜鸢鸣爱罢备笔边宾补参蚕仓侧测层长厂车称宠处传创从担胆党导灯邓敌递点电钓调东动斗独读赌断发发范飞费纷风丰负复该盖干赶个巩贡沟构购顾关广归规贵国过汉号阂贺后护华划怀坏欢环还黄会毁获祸机积极几挤记际继价坚间艰检减荐剑见将奖讲酱阶结尽进惊静镜旧据剧卷决觉克课夸块宽亏扩来赖蓝览泪离里礼历丽连联练粮凉两辽临灵刘龙楼卢录论罗妈马买麦猫梦么门们弥面庙灭悯谋脑闹宁拟酿鸟聂农浓欧盘庞喷辟凭评频飒气迁钱强桥亲轻倾请庆穷区权劝确让热荣绒绍设摄审声胜时识实适势饰试寿兽枢输属数帅双谁说丝岁损台坛叹汤体条铁听统头图涂团废万网卫伟纬问卧无务雾习系戏细现线乡响项向悬学寻压鸭亚严颜验阳杨养样摇药叶页业仪艺议忆阴荫银饮隐应婴营优邮犹游忧与语狱预园员缘远愿约阅云运酝杂灾载赞脏责则择贼赠闸斋债毡战涨帐这阵镇争征郑织职执纸志质钟种众周猪诸筑着庄装壮准浊资总纵组寝辈氢缠锋尘诺齿暂宪牵标飘扑苹罚顿迟雳厨献栖钟惩显贤险线邻残惨苍沧舱虫诚盗烛画话沪谎惧鉴骄娇胶脚较饥叹颗启郁症浆缝坟纲钢乌钥松闷谜湿释苏狮稳袭韩毁舍陕叠镰垒炼绿滚滨骂怜萧锣鸿偿萨鹅尽弯贝笋蜕遗贱紧谨类恋拢缓绽闲誉艳径窝鸳鸯嘱获缩访词诗诉诊诈询诡详误诱谅讽谣谢谱译谴赢赎趋跃轨军轩软辆轮辑转轰办辞回选遥医钉针铃钞钩钜铜铭销错表键锁镇链铸闭闯随只虽鸡顶顺须顽颁领颇题额饭饲饼余馆驱肮胡鱼鲁凤鸽鹃鹰盐齐龄龟婶侄妩娴妫娘宝专届尸岭岳岩币帮帜厢厦弹汇径彻悦恶恼欲惫恳懒户榨挚捞拨拥扰携敛毙斓历晓晖胧拐栅枣栈枫枪桩横档台柜樱栏钦歼殴渔渗渐涩济涛滥浏沥湾烫灿炉烁为墙它牺狰兹玛琐玺瓯毕亩畴痉痴硕码砖础御禅籼秆税棱颖洼窥窜竞笃简篮筹签粤粪纠纪级纺扎绅终绋绊绞络给经绑综维缀彩纶绰绯绪缄缉编致萦缢绉缚绕绣绳绘茧缴辫续缆羁羡义翘圣聪肃脉唇肾肿肠肤腻脸脏兴舰兹茎荤莲卜蒋荡姜蔷借蕴芦萝虚虾蜗萤蚁冲里制复衬触订托讶诀讷诋诏诅诧诠诘诛谊谄谈诤谍谐谏咨讳谙谚谓誊谤谦谟哗讥变赞岂贞财贩贪贫货贯贮贰贬贷贴贸贲赂赁贿赅贾赈赐赏赔赋账赚赛赘赃迹践踊迹踪躯轧辅",m={};for(let i=0;i<t.length;i++)m[t[i]]=s[i];return m})();
+const toSimp=x=>String(x||'').replace(/[\u3400-\u9fff]/g,c=>T2S[c]||c).toLowerCase();
+let NPONLY=false,DFONLY=false;
+function filtered(){
+  const dfk=DFONLY&&PLAN?(()=>{const add=new Set(planAdded().map(x=>x.ep+'|'+x.sc)),dd=dbDiff();return new Set(S.scenes.filter(s=>!add.has(s.ep+'|'+s.sc)&&dd.has(s.id)).map(s=>s.id))})():null; // 「已拍但大计划没有」的场次(★)不算在里面
+  const npk=NPONLY&&PLAN?new Set(planAdded().map(x=>x.ep+'|'+x.sc)):null;
+  const ep=$('#fEp').value?$('#fEp').value.split(','):[],dt=$('#fDate').value,ro=$('#fRole').value?$('#fRole').value.split('|'):[],q=toSimp($('#fQ').value.trim()),ph=$('#fPhoto').checked;
+  const base=sorted();
+  if(ep.length&&VIEW==='card'){const k=s=>parseInt(s.sc)||0;base.sort((a,b)=>(+a.ep-+b.ep)||k(a)-k(b)||String(a.sc).localeCompare(String(b.sc),'zh',{numeric:true}))} // 手机版选了某一集:一律按场号递增,看得出剧情顺序
+  return base.filter(s=>(!npk||npk.has(s.ep+'|'+s.sc))&&(!dfk||dfk.has(s.id))&&(!ph||s.photo)&&(!ep.length||ep.includes(String(s.ep)))&&(!dt||dt.split(',').some(x=>dateHas(s.date,x)))&&(!ro.length||ro.every(r=>s.cast[r]))&&
+    (!q||toSimp([s.main,s.sub,s.summary,s.place,s.sc].join(' ')).includes(q)));
+}
+/* 排序:点表头的字;同一列点第一次=递增,再点=递减。默认按集数递增,每次打开都从这里开始 */
+let SORT={key:'ep',dir:1};
+const COLS=[['ep','集'],['sc','场'],['light','日夜'],['place','内外'],['main','主场景'],['sub','次场景'],['summary','内容概要'],['pages','页','num'],['cast','角色']];
+function sorted(){
+  const k=s=>parseInt(s.sc)||0;
+  const byEp=(a,b)=>a.ep-b.ep||k(a)-k(b)||String(a.sc).localeCompare(String(b.sc),'zh',{numeric:true});
+  const dk=s=>{const m=String(s.date||'').match(/(\d{1,2})\.(\d{1,2})/);return m?(+m[1])*100+(+m[2]):null}; // 跨天取第一个 月.日
+  const txt=f=>s=>{const t=cut(s[f]).trim();return t||null};
+  const val={ // 取每一场在该列的排序值;null=空白,永远排在最后
+    date:dk, ep:s=>s.ep||null, sc:s=>k(s)||null, light:txt('light'), dn:s=>lnOf(s)||null, place:txt('place'), main:txt('main'), sub:txt('sub'), summary:txt('summary'),
+    pages:s=>num(s.pages), cast:s=>S.roles.filter(r=>s.cast[r]).length||null
+  }[SORT.key];
+  const cmp=(x,y)=>typeof x==='string'||typeof y==='string'?String(x).localeCompare(String(y),'zh',{numeric:true}):x-y;
+  return [...S.scenes].sort((a,b)=>{
+    const x=val(a),y=val(b);
+    if(x===null&&y!==null)return 1;
+    if(y===null&&x!==null)return -1;
+    return (x===null?0:cmp(x,y)*SORT.dir)||byEp(a,b);
+  });
+}
+function sortHead(){
+  return COLS.map(([key,lab,cls])=>`<th class="sortable${cls?' '+cls:''}${SORT.key===key?' sorted':''}" data-k="${key}" title="点一下排序,再点一下反向">${lab}<i>${SORT.key===key?(SORT.dir>0?'▲':'▼'):''}</i></th>`).join('');
+}
+function uniq(a){return [...new Set(a.filter(Boolean))]}
+function options(f){return uniq([...(S.opts[f]||[]),...S.scenes.map(s=>cut(s[f]))])}
+
+function fillFilters(){
+  const keep={ep:$('#fEp').value,dt:$('#fDate').value,ro:$('#fRole').value};
+  const eps=uniq(S.scenes.map(s=>s.ep)).sort((a,b)=>a-b);
+  const dates=uniq(S.scenes.map(s=>s.date)).sort((a,b)=>String(a).localeCompare(String(b),'zh',{numeric:true}));
+  $('#fEp').value=keep.ep;epLabel();$('#fDate').value=keep.dt;$('#fRole').value=keep.ro;roLabel();
+  for(const f of ['date','light','place','main','sub'])
+    $('#l-'+f).innerHTML=(f==='date'?dates:options(f)).map(o=>`<option value="${esc(o)}">`).join('');
+}
+
+function applyAdmin(){
+  document.querySelectorAll('.adm').forEach(b=>b.hidden=!ADMIN);
+  if(SERVER||GHMODE)$('#reset').hidden=true; // 有数据库时没有「还原」:数据以网站上的为准
+  $('#login').hidden=ADMIN;$('#logout').hidden=!ADMIN;
+  document.body.classList.toggle('adminOn',ADMIN);
+}
+function render(){
+  applyAdmin();
+  document.title=S.title||'戏份盘点';
+  $('#title').firstChild.textContent=S.title||'戏份盘点';
+  fillFilters();
+  const rows=tab==='stats'||tab==='plan'?[...S.scenes]:filtered(); // 统计页不使用筛选,永远统计全部场次
+  $('#filterBar').hidden=tab==='stats'||tab==='plan';
+  $('#vScenes').hidden=tab!=='scenes';$('#vStats').hidden=tab!=='stats'&&tab!=='plan';
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===tab));
+  if(tab==='scenes')renderScenes(rows);else if(tab==='plan')renderPlan();else if(CV)renderCoStats(rows);else if(PIE)renderPie(rows);else if(EPV)$('#vStats').innerHTML=epChart(rows);else renderStats(rows);
+  document.querySelectorAll('.vsw button').forEach(b=>b.classList.toggle('on',b.dataset.v===VIEW));
+  $('#pieBtn').hidden=tab!=='stats';$('#pieBtn').classList.toggle('on',PIE); // 圆饼图按钮只在「戏份占比」页出现
+}
+
+function npBar(){return'';return`<div class="npbar"><label class="npleg"><input type="checkbox" id="fNp"${NPONLY?' checked':''}><i>⭐</i>已拍,但大计划没有的场次</label><label class="npleg"><input type="checkbox" id="fDf"${DFONLY?' checked':''}><i>♦️</i>只看和大计划有差异的场次</label></div>`}
+function bindNp(){
+  const np=$('#fNp');if(np)np.onchange=()=>{NPONLY=np.checked;render()};
+  const df=$('#fDf');if(df)df.onchange=()=>{DFONLY=df.checked;render()};
+}
+function renderScenes(rows){
+  if(!rows.length){$('#vScenes').innerHTML=npBar()+'<div class="empty">没有符合的场次</div>';bindNp();return} // 空结果也要留着两个勾选,才能取消
+  const tp=rows.reduce((a,s)=>a+(num(s.pages)||0),0);
+  const pgOf=s=>num(s.pages)!==null?`${fmt(s.pages)}<small>页</small>`:esc(s.pnote||'');
+  const DD=PLAN?dbDiff():new Map(),ddHTML=s=>DD.has(s.id)?`<div class="pl-diff${DD.get(s.id).length===1&&(DD.get(s.id)[0]===NEWTXT||DD.get(s.id)[0]===CHGTXT)?' pl-new':''}">${DD.get(s.id).map(esc).join('<br>')}</div>`:'',ddMark=s=>DD.has(s.id)&&!NOP.has(s.ep+'|'+s.sc)?'<b class="dfx" title="和大计划有差异">♦️</b>':'';
+  const NOP=new Set(PLAN?planAdded().map(x=>x.ep+'|'+x.sc):[]),npTag=s=>NOP.has(s.ep+'|'+s.sc)?'<i class="nplan" title="大计划无">⭐</i>':'';
+  const chipsOf=s=>S.roles.filter(r=>s.cast[r]).map(r=>`<span class="chip rc ${s.cast[r]===2?'z':''} ${r===PINK?'pink':''}">${esc(r)}</span>`).join('');
+  const cards=rows.map(s=>{
+    const meta=[s.main,s.sub].filter(Boolean).map(x=>esc(cut(x))).join(' · '),cast=chipsOf(s),[ln,io]=lnTags(s),
+      tg=(c,t)=>t?`<span class="pl-tag ${c}">${esc(t)}</span>`:'',tags=[tg(/夜/.test(s.light)?'nt':'dy',s.light),tg('',s.place)].join('');
+    return`<div class="sc-card${NOP.has(s.ep+'|'+s.sc)?' noplan':''}" data-id="${s.id}"><div class="h">${s.photo?'<span class="cam" title="有现场照片">📷</span>':''}<span>第${esc(s.ep)}集 · ${esc(s.sc)}场${npTag(s)}${ddMark(s)}</span><em>${pgOf(s)}</em></div>${ddHTML(s)}${tags?`<div class="tags">${tags}</div>`:''}${meta?`<div class="m">${meta}</div>`:''}${s.summary?`<div class="t">${esc(cut(s.summary))}</div>`:''}${s.photo?`<img class="sc-photo" src="${phSrc(s.photo)}" alt="现场照片" loading="lazy">`:''}${cast?`<div class="c">${cast}</div>`:''}</div>`}).join('');
+  $('#vScenes').innerHTML=`${npBar()}<div class="mcards">${cards}${NPONLY?'':`<div class="tot">合计 ${rows.length} 场 · ${fmt(tp)} 页</div>`}</div><div class="mtable"><table><thead><tr>${sortHead()}</tr></thead><tbody>`+
+  rows.map(s=>`<tr class="row${NOP.has(s.ep+'|'+s.sc)?' noplan':''}" data-id="${s.id}"><td>${s.ep}</td><td>${esc(s.sc)}${npTag(s)}${ddMark(s)}</td><td>${esc(s.light)}</td><td>${esc(s.place)}</td><td class="wrap">${esc(cut(s.main))}</td><td class="wrap">${esc(cut(s.sub))}</td><td class="wrap">${esc(cut(s.summary))}</td><td class="num">${num(s.pages)!==null?fmt(s.pages):esc(s.pnote||'')}</td><td class="wrap">${S.roles.filter(r=>s.cast[r]).map(r=>`<span class="chip rc ${s.cast[r]===2?'z':''} ${r===PINK?'pink':''}">${esc(r)}</span>`).join('')}</td></tr>`).join('')+
+  `</tbody>${NPONLY?'':`<tfoot><tr><th colspan="7">合计 ${rows.length} 场</th><th class="num">${fmt(tp)}</th><th></th></tr></tfoot>`}</table></div><div id="npSlot"></div><p class="hint hintTable">点任一场可查看完整资讯${ADMIN?',并可在窗口里编辑':''}。</p>${ADMIN?'<p class="hint hintCard">点任一张卡片即可编辑。</p>':''}`;
+  if(NPONLY){ // 勾选「已拍但大计划没有」时,在最下面统计这些场次的页数和页数最多的前三位角色
+    const rp={};rows.forEach(r=>S.roles.forEach(n=>{if(r.cast[n])rp[n]=(rp[n]||0)+(num(r.pages)||0)}));
+    const all=Object.entries(rp).sort((x,y)=>y[1]-x[1]||S.roles.indexOf(x[0])-S.roles.indexOf(y[0])),pick=all.slice(0,3);
+    if(!pick.some(t=>t[0]==='陆封')){const lf=all.find(t=>t[0]==='陆封');if(lf)pick.push(lf)}else if(all[3])pick.push(all[3]); // 固定四位:前三名 + 陆封(陆封已在前三就补第四名)
+    $('#npSlot').innerHTML=`<div class="npsum"><b>⭐ 合计 ${rows.length} 场 · ${fmt(tp)} 页</b><div>页数最多的角色:${pick.map(t=>`<span>${all.indexOf(t)+1}. ${esc(t[0])} ${fmt(Math.round(t[1]*100)/100)}页</span>`).join('')}</div></div>`}
+  bindNp();
+  document.querySelectorAll('th.sortable').forEach(th=>th.onclick=()=>{
+    const k=th.dataset.k;SORT=SORT.key===k?{key:k,dir:-SORT.dir}:{key:k,dir:1};render()});
+  document.querySelectorAll('.sc-photo').forEach(im=>im.onclick=e=>{e.stopPropagation();showBig(im.getAttribute('src'))}); // 卡片上点图片看大图
+  document.querySelectorAll('tr.row').forEach(tr=>tr.onclick=()=>openDetail(+tr.dataset.id));
+  stickyCols();
+  // 手机版卡片已显示全部资讯,不弹详情窗;只有管理员点卡片才进入编辑
+  document.querySelectorAll('.sc-card').forEach(c=>{if(ADMIN)c.onclick=()=>openScene(+c.dataset.id)});
+}
+
+function stickyCols(){ // 量出前两栏的实际宽度,让第 2、3 栏贴在前一栏右边
+  const th=document.querySelectorAll('#vScenes .mtable thead th');if(th.length<2)return;
+  const w1=th[0].getBoundingClientRect().width,w2=th[1].getBoundingClientRect().width,box=$('#vScenes');
+  box.style.setProperty('--l2',w1+'px');box.style.setProperty('--l3',(w1+w2)+'px');
+}
+window.addEventListener('resize',()=>{if(tab==='scenes')stickyCols()});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if(tab==='scenes')stickyCols()});
+let sortBy='p';
+/* 圆饼图:前 6 位有名字的角色 + 其他,共 7 块;比例=该角色页数 ÷ 所有角色页数之和 */
+const PIE_COL=['#d9b56c','#4fb3a9','#6a8ff0','#a07bd8','#e8884a','#8bc56b'],PIE_OTHER='#7b7b86';
+function renderPie(rows){
+  const byN=false,unit='页'; // 圆饼图只按页数
+  const per=S.roles.map(r=>({r,p:rows.reduce((a,s)=>a+(s.cast[r]===1?(byN?1:(num(s.pages)||0)):0),0)}));
+  const sum=per.reduce((a,x)=>a+x.p,0);
+  const scope='全部场次';
+  if(!sum){$('#vStats').innerHTML='<div class="pie"><button class="pieback" type="button">← 返回长条图</button><div class="hint" style="padding:30px 0;text-align:center">这个范围内没有页数资料,无法画圆饼图。</div></div>';return}
+  const named=per.filter(x=>x.p>0&&!/配角/.test(x.r)).sort((a,b)=>b.p-a.p);
+  const top=named.slice(0,6),rest=sum-top.reduce((a,x)=>a+x.p,0);
+  let ci=0;const sl=top.map(x=>({n:x.r,p:x.p,c:x.r===PINK?'#ff4fa3':PIE_COL[ci++%PIE_COL.length]}));
+  if(rest>0.0001)sl.push({n:'其他',p:rest,c:PIE_OTHER});
+  const W=560,H=380,cx=W/2,cy=H/2,R=130;let a0=-Math.PI/2,svg='';
+  const pt=(a,r)=>[cx+r*Math.cos(a),cy+r*Math.sin(a)];
+  sl.forEach(x=>{
+    const pc=x.p/sum,a1=a0+pc*2*Math.PI,mid=(a0+a1)/2,pct=(Math.round(pc*1000)/10)+'%';
+    if(sl.length===1)svg+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="${x.c}" stroke="#17171c" stroke-width="2"/>`;
+    else{const [x0,y0]=pt(a0,R),[x1,y1]=pt(a1,R);svg+=`<path d="M${cx},${cy} L${x0.toFixed(2)},${y0.toFixed(2)} A${R},${R} 0 ${pc>.5?1:0} 1 ${x1.toFixed(2)},${y1.toFixed(2)} Z" fill="${x.c}" stroke="#17171c" stroke-width="2"/>`}
+    if(pc>=.1){const [tx,ty]=pt(mid,R*.62);svg+=`<text class="pl" x="${tx.toFixed(1)}" y="${(ty-3).toFixed(1)}" text-anchor="middle">${esc(x.n)}</text><text class="pl p2" x="${tx.toFixed(1)}" y="${(ty+14).toFixed(1)}" text-anchor="middle">${pct}</text>`}
+    else{const [lx,ly]=pt(mid,R+8),[ex,ey]=pt(mid,R+26),right=Math.cos(mid)>=0,ax=ex+(right?14:-14);
+      svg+=`<polyline points="${lx.toFixed(1)},${ly.toFixed(1)} ${ex.toFixed(1)},${ey.toFixed(1)} ${ax.toFixed(1)},${ey.toFixed(1)}" fill="none" stroke="${x.c}" stroke-width="1.5"/><text class="pl out" x="${(ax+(right?4:-4)).toFixed(1)}" y="${(ey+4).toFixed(1)}" text-anchor="${right?'start':'end'}">${esc(x.n)} ${pct}</text>`}
+    a0=a1;
+  });
+  const legend=sl.map(x=>`<li><i style="background:${x.c}"></i><b ${x.n==='其他'?'':`class="rolelink" data-role="${esc(x.n)}" title="点一下,看她所有的场次"`}>${esc(x.n)}</b><span>${fmt(x.p)} ${unit}</span><em>${(Math.round(x.p/sum*1000)/10)}%</em></li>`).join('');
+  $('#vStats').innerHTML=`<div class="pie"><button class="pieback" type="button">← 返回长条图</button><h3>角色戏份占比(按页数)<small>统计范围:包含所有场次</small></h3>
+    <p class="rolehint" style="margin:6px 0 0">💡 <b>点下方的角色名</b>可以看她所有的场次</p>
+    <div class="note"><b>圆饼图的算法</b>
+      <p>每一块 = 该角色的页数 ÷ 所有角色页数的加总(${fmt(sum)} 页),各块加起来刚好 100%。</p>
+      <p>一场戏有多位角色时,每位角色都各算一次整场页数,所以这个加总(${fmt(sum)} 页)会比实际总页数(${fmt(rows.reduce((a,s)=>a+(num(s.pages)||0),0))} 页)大。</p>
+      <p>因此这里的百分比和「戏份占比」长条图的页数占比不同:圆饼图表示「在所有角色的戏份总量里占几成」,长条图表示「占了整部戏多少篇幅」。</p>
+      <p>只列前 6 位有名字的角色,其余合并为「其他」。</p></div>
+    <svg viewBox="0 0 ${W} ${H}" role="img" aria-label="角色占比圆饼图">${svg}</svg>
+    <ul class="plegend">${legend}</ul>
+</div>`;
+}
+/* 点角色名:列出她所有的场次 */
+let FROMROLE='',CURROLE='';
+function openRole(r){
+  CURROLE=r;
+  const list=S.scenes.filter(s=>s.cast[r]===1).sort((a,b)=>a.ep-b.ep||(parseInt(a.sc)||0)-(parseInt(b.sc)||0)||String(a.sc).localeCompare(String(b.sc),'zh',{numeric:true}));
+  const pg=list.reduce((a,s)=>a+(num(s.pages)||0),0),all=S.scenes.reduce((a,s)=>a+(num(s.pages)||0),0);
+  const eps=uniq(list.map(s=>s.ep)).length;
+  $('#rdTitle').textContent=r;
+  $('#rdSum').innerHTML=`<span><b>${list.length}</b> 场</span><span><b>${fmt(pg)}</b> 页</span><span>占整部戏页数 <b>${all?(pg/all*100).toFixed(1):0}%</b></span><span>出现在 <b>${eps}</b> 集</span>`;
+  $('#rdList').innerHTML=list.length?list.map(s=>`<div class="rrow" data-id="${s.id}"><b>第${esc(s.ep)}集 ${esc(s.sc)}场</b><span class="pg">${num(s.pages)!==null?fmt(s.pages)+' 页':esc(s.pnote||'')}</span><span class="sm">${esc(cut(s.summary))}</span></div>`).join(''):'<div class="hint" style="padding:16px 2px">这个角色还没有场次。</div>';
+  $('#rdlg').showModal();
+}
+$('#rdClose').onclick=()=>$('#rdlg').close();
+$('#rdList').onclick=e=>{const r=e.target.closest('.rrow');if(r){FROMROLE=CURROLE;$('#rdlg').close();openDetail(+r.dataset.id)}}; // 记住是从哪个角色点进来的,方便返回
+document.addEventListener('click',e=>{ // 抢在表格「点整行」之前处理
+  const t=e.target.closest('[data-role]');if(!t)return;
+  e.stopPropagation();e.preventDefault();
+  if($('#ddlg').open)$('#ddlg').close();
+  openRole(t.dataset.role);
+},true);
+/* 每集戏份分布:每集一条横条,按角色页数占比分段(颜色和圆饼图一致) */
+let EPD=null;
+function openEpBar(ep){
+  if(!EPD)return;const {perEp,col,dark,topOf,rows}=EPD,per=perEp[ep]||{},sum=Object.values(per).reduce((a,b)=>a+b,0),t5=topOf(+ep)||topOf(ep);
+  const rs=rows.filter(s=>String(s.ep)===String(ep)),pages=rs.reduce((a,s)=>a+(num(s.pages)||0),0);
+  const t5k=Object.keys(per).filter(r=>per[r]>0&&!/配角/.test(r)).sort((a,b)=>per[b]-per[a]).slice(0,5),rest=Object.keys(per).filter(r=>per[r]>0&&!t5k.includes(r)).sort((a,b)=>per[b]-per[a]);
+  const BW=Math.min(720,window.innerWidth*.94)-50,sur=n=>n==='秦长歌/明霜'?'歌':[...n].slice(-1)[0];
+  const lab=(n,pc)=>{const w=pc/100*BW,p=Math.round(pc)+'%';if(n==='其他')return w>=40?`<span>${n}</span><span>${p}</span>`:'';return w>=n.length*13+10?`<span>${esc(n)}</span><span>${p}</span>`:w>=14?`<span>${esc(sur(n))}</span><span>${p}</span>`:''};
+  const parts=t5k.map(r=>({n:r,p:per[r],c:col[r]}));const rsum=rest.reduce((a,r)=>a+per[r],0);if(rsum>0.0001)parts.push({n:'其他',p:rsum,c:PIE_OTHER});
+  const bar=sum?parts.map(x=>{const pc=x.p/sum*100;return`<div style="flex:${x.p} 1 0;background:${x.c}${dark.has(x.c)?';color:#1b1b1f;text-shadow:none':''}">${lab(x.n,pc)}</div>`}).join(''):'<span class="hint" style="padding:0 12px">这一集还没有页数资料</span>';
+  const row=(r,c)=>`<div class="ebr"><i style="background:${c}"></i><b>${esc(r)}</b><span>${fmt(per[r])} 页 · ${(per[r]/sum*100).toFixed(1)}%</span></div>`;
+  let d=$('#epBarDlg');if(!d){d=document.createElement('dialog');d.id='epBarDlg';document.body.appendChild(d);d.addEventListener('click',e=>{if(e.target===d)d.close()})}
+  d.innerHTML=`<div class="ebh"><b>第${esc(ep)}集</b><small>${fmt(pages)} 页 · ${rs.length} 场</small><button type="button" class="ebx">关闭</button></div><div class="ebbar">${bar}</div>${sum?`<div class="ebl">${t5k.map(r=>row(r,col[r])).join('')}${rest.length?`<div class="ebr ebo"><i style="background:${PIE_OTHER}"></i><b>其他 ${rest.length} 位</b><span>${fmt(rsum)} 页 · ${(rsum/sum*100).toFixed(1)}%</span></div><div class="ebm">${rest.map(r=>esc(r)+' '+fmt(per[r])).join(' · ')}</div>`:''}</div>`:''}`;
+  d.querySelector('.ebx').onclick=()=>d.close();d.showModal();
+}
+document.addEventListener('click',e=>{const r=e.target.closest&&e.target.closest('.eprow');if(r&&r.dataset.ep)openEpBar(r.dataset.ep)});
+function epChart(rows){
+  const eps=uniq(rows.map(s=>s.ep)).sort((a,b)=>a-b);
+  if(!eps.length)return'<div class="epc"><button class="pieback" type="button">← 返回长条图</button><p class="hint">还没有场次资料。</p></div>';
+  const tot={};rows.forEach(s=>S.roles.forEach(r=>{if(s.cast[r]===1)tot[r]=(tot[r]||0)+(num(s.pages)||0)}));
+  // 每一集各自取戏份(页数)最多的前 5 位角色上色,其余一律灰色;同一个角色在每一集用同一个颜色
+  const BARW=window.innerWidth<560?210:900; // 估算一条的宽度,按色块实际宽度决定写全名、姓氏+%、或只写姓氏
+  const segLab=(n,pc)=>{const w=pc/100*BARW,p=Math.round(pc)+'%',f=SUR(n);
+    if(n==='其他')return w>=60?n+' '+p:w>=17?p:'';
+    return w>=n.length*12+38?esc(n)+' '+p:w>=40?esc(f)+' '+p:w>=17?p:''}; // 百分比一律保留:放得下就写「名 %」→「姓 %」→只写 %
+  const EPAL=['#d9b56c','#4fb3a9','#6a8ff0','#a07bd8','#e8884a','#8bc56b','#e36f6f','#5fc7e8','#c9a0dc','#f2c94c','#6fd1a0','#d4789b','#7aa2c8','#b5c26a','#ef9f76','#9a8cf0'];
+  const perEp={};eps.forEach(ep=>{const per={};rows.filter(s=>s.ep===ep).forEach(s=>S.roles.forEach(r=>{if(s.cast[r]===1)per[r]=(per[r]||0)+(num(s.pages)||0)}));perEp[ep]=per});
+  const topOf=ep=>Object.keys(perEp[ep]).filter(r=>perEp[ep][r]>0&&!/配角/.test(r)).sort((a,b)=>perEp[ep][b]-perEp[ep][a]||(tot[b]||0)-(tot[a]||0)).slice(0,5);
+  const used=new Set();eps.forEach(ep=>topOf(ep).forEach(r=>used.add(r)));
+  const top=[...used].sort((a,b)=>(tot[b]||0)-(tot[a]||0));
+  // 每个角色一个专属颜色,全部不重复:色盘里的颜色色相、明暗都拉得很开;排颜色时,同一集前 5 名里并排的角色尽量挑感觉差最大的色(CIELAB 色差),并避开粉色(祝阮专用)和灰色(其他)
+  const PAL=['#f3c300','#2f6fed','#e8431c','#17b26a','#8a3ffc','#00b8d9','#ff9f1a','#a3d900','#c0392b','#7ec8e3','#7a5a2b','#0b6e4f','#d4a373','#4b2e83','#b8e986','#ff7f6e','#1e3a8a','#c2b280','#00e0b0','#9b2d82','#ffd966','#5dade2','#a04000','#58d68d','#6c5ce7','#e5e500','#008b8b','#ff6b35','#3d85c6','#b5651d','#9acd32','#8e44ad','#f0b27a','#26c6da','#6b8e23','#d35400'];
+  const lab=h=>{const c=[1,3,5].map(i=>{let v=parseInt(h.slice(i,i+2),16)/255;return v<=.04045?v/12.92:Math.pow((v+.055)/1.055,2.4)});const X=(c[0]*.4124+c[1]*.3576+c[2]*.1805)/.95047,Y=c[0]*.2126+c[1]*.7152+c[2]*.0722,Z=(c[0]*.0193+c[1]*.1192+c[2]*.9505)/1.08883,f=t=>t>.008856?Math.cbrt(t):7.787*t+16/116;return[116*f(Y)-16,500*(f(X)-f(Y)),200*(f(Y)-f(Z))]};
+  const dE=(p,q)=>{const a=lab(p),b=lab(q);return Math.hypot(a[0]-b[0],a[1]-b[1],a[2]-b[2])};
+  const SUR=n=>n==='秦长歌/明霜'?'歌':[...n].slice(-1)[0];
+  const col={},dark=new Set(),taken=new Set(),nb={};
+  top.forEach(r=>nb[r]=new Set());eps.forEach(ep=>{const t=topOf(ep);t.forEach(x=>t.forEach(y=>{if(x!==y)nb[x].add(y)}))});
+  // 用户在图例上指定的颜色(2026-11-05 上传的图例图),固定不变;新出现的角色才用下面的算法挑色
+  const FIXED={'秦长歌/明霜':'#ff4fa3','萧缺':'#00eaff'};
+  top.forEach(r=>{if(FIXED[r]){col[r]=FIXED[r];taken.add(FIXED[r]);if(lab(FIXED[r])[0]>=68)dark.add(FIXED[r])}});
+  top.forEach(r=>{
+    if(col[r])return;
+    const ref=[['#ff4fa3',1],['#7b7b86',1],...[...nb[r]].filter(x=>col[x]).map(x=>[col[x],1])];
+    top.forEach(x=>{if(x!==r&&col[x]&&SUR(x)===SUR(r))ref.push([col[x],.45])}); // 同姓的角色:颜色要拉得特别开(差距按 .45 折算,等于要更远才算够)
+    let best=null,bs=-1;PAL.forEach(c=>{if(taken.has(c))return;const adj=Math.min(...ref.map(([q,k])=>dE(c,q)*k));if(adj>bs){bs=adj;best=c}});
+    if(!best)best=PAL[Object.keys(col).length%PAL.length];
+    taken.add(best);col[r]=best;if(lab(best)[0]>=68)dark.add(best)});
+  const segs=eps.map(ep=>{
+    const rs=rows.filter(s=>s.ep===ep),pages=rs.reduce((a,s)=>a+(num(s.pages)||0),0);
+    const per=perEp[ep],sum=Object.values(per).reduce((a,b)=>a+b,0),t5=topOf(ep);
+    const parts=t5.map(r=>({n:r,p:per[r],c:col[r]}));
+    const rest=sum-parts.reduce((a,x)=>a+x.p,0);if(rest>0.0001)parts.push({n:'其他',p:rest,c:PIE_OTHER});
+    return`<div class="eprow" data-ep="${esc(ep)}" title="点一下放大看是哪些角色"><div class="eplab"><b>第${esc(ep)}集</b><small>${fmt(pages)} 页 · ${rs.length} 场</small></div><div class="epbar">${sum?parts.map(x=>{const pc=x.p/sum*100;return`<div style="flex:${x.p} 1 0;background:${x.c}${dark.has(x.c)?';color:#1b1b1f;text-shadow:none':''}" title="${esc(x.n)} ${fmt(x.p)} 页 · ${pc.toFixed(1)}%">${segLab(x.n,pc)}</div>`}).join(''):'<span style="color:#6f6c68;font-size:11px;padding:0 10px;line-height:26px">这一集还没有页数资料</span>'}</div></div>`;
+  }).join('');
+  const PRE=['秦长歌/明霜','萧缺','楚非欢','江照薇','萧探']; // 图例里这五位固定排最前面,其他角色接在后面
+  EPD={perEp,col,dark,topOf,rows,SUR};
+  const leg=[...PRE.filter(r=>col[r]),...top.filter(r=>!PRE.includes(r))].map(r=>`<span><i style="background:${col[r]}"></i>${esc(r)}</span>`).join('')+`<span><i style="background:${PIE_OTHER}"></i>其他</span>`;
+  return`<div class="epc"><button class="pieback" type="button">← 返回长条图</button><h3>每集戏份分布(按页数)</h3><div class="note"><b>这张图怎么看</b><p>每一条是一集;条里各色块是各角色在这一集的页数占比(该角色页数 ÷ 这一集所有角色页数加总)。每一集只给页数最多的前 5 位角色上色(同一个角色颜色固定),其余角色合并成灰色。</p><p>色块越宽,代表那个角色在这一集的戏越重;鼠标移上去(手机长按)可以看到页数。左边的页数和场次数是这一集的实际总量。点任一集的长条,可以放大看每位角色的名字。</p></div>
+    <div class="epleg">${leg}</div>${segs}</div>`;
+}
+document.addEventListener('click',e=>{if(e.target.closest('.coback')){COV=false;CV=false;SCH=false;render()}});
+$('#pieBtn').onclick=()=>{PIE=!PIE;EPV=false;render()}; // 圆饼图自成一页,跟排版无关
+document.addEventListener('click',e=>{if(e.target.closest('.pieback')){PIE=false;EPV=false;tab='stats';render()}});
+function renderStats(rows){
+  const total=rows.reduce((a,s)=>a+(num(s.pages)||0),0),nsc=rows.length;
+  const list=S.roles.map(r=>{
+    let p=0,n=0;
+    rows.forEach(s=>{if(s.cast[r]===1){p+=num(s.pages)||0;n++}});
+    return{r,p,n};
+  }).sort((a,b)=>sortBy==='n'?(b.n-a.n||b.p-a.p):(b.p-a.p||b.n-a.n));
+  const scope='全部场次';
+  const bar=(pc,pink)=>`<div class="meter"><i style="width:${Math.min(100,pc)}%"></i></div>`;
+  $('#vStats').innerHTML=`<div class="bar sortbar topbtns"><button class="epbtn" type="button">📊 每集戏份分布</button><button class="epbtn cobtn" type="button">🤝 角色对戏占比</button></div>
+  <div class="note"><b>长条图的算法</b>
+    <p>场次占比 = 该角色有戏的场次数 ÷ 所选范围的总场次数(${nsc} 场)</p>
+    <p>页数占比 = 该角色的页数 ÷ 所选范围的总页数(${fmt(total)} 页)</p>
+    <p>一场戏有多位角色时,每位角色都各算一次,所以各角色的占比加起来会超过 100%。它表示「这个角色占了整部戏多少篇幅」。</p></div>
+  <div class="sum"><div><b>${nsc}</b><span>总场次</span></div><div><b>${fmt(total)}</b><span>总页数</span></div><div><b>${S.roles.length}</b><span>角色</span></div><div><b>${esc(scope)}</b><span>统计范围</span></div></div>
+  <div class="bar sortbar" style="margin-top:14px"><span class="hint">排序:</span><button class="sortb ${sortBy==='p'?'on':''}" data-s="p">按页数</button><button class="sortb ${sortBy==='n'?'on':''}" data-s="n">按场次</button></div>
+  <p class="rolehint" style="margin:10px 0 0">💡 <b>点角色名</b>可以看她所有的场次</p>
+  <div class="mcards" style="margin-top:10px">`+
+  list.map((x,i)=>{const ps=nsc?x.n/nsc*100:0,pp=total?x.p/total*100:0;return`<div class="st-card ${x.r===PINK?'pinkrow':''}"><div class="h"><span class="no">${i+1}</span><b class="rolelink" data-role="${esc(x.r)}" title="点一下,看她所有的场次">${esc(x.r)}</b></div><div class="r"><span>场次</span><strong>${x.n}</strong><em>${ps.toFixed(1)}%</em></div>${bar(ps)}<div class="r"><span>页数</span><strong>${fmt(x.p)}</strong><em>${pp.toFixed(1)}%</em></div>${bar(pp)}</div>`}).join('')+
+  `</div>
+  <div class="scroll mtable plbar" style="margin-top:10px"><table><thead><tr><th>#</th><th>角色</th><th class="num">场次</th><th class="num">场次占比</th><th style="width:22%"></th><th class="num">页数</th><th class="num">页数占比</th><th style="width:22%"></th></tr></thead><tbody>`+
+  list.map((x,i)=>{const ps=nsc?x.n/nsc*100:0,pp=total?x.p/total*100:0;return`<tr class="${x.r===PINK?'pinkrow':''}"><td>${i+1}</td><td><b class="rolelink" data-role="${esc(x.r)}" title="点一下,看她所有的场次">${x.r.split('/').map(p=>`<span style="white-space:nowrap">${esc(p)}</span>`).join('/<wbr>')}</b></td><td class="num">${x.n}</td><td class="num">${ps.toFixed(1)}%</td><td>${bar(ps)}</td><td class="num">${fmt(x.p)}</td><td class="num">${pp.toFixed(1)}%</td><td>${bar(pp)}</td></tr>`}).join('')+
+  `</tbody></table></div>`;
+  document.querySelectorAll('.sortb').forEach(b=>b.onclick=()=>{sortBy=b.dataset.s;render()});
+  document.querySelectorAll('.epbtn:not(.cobtn)').forEach(b=>b.onclick=()=>{EPV=true;PIE=false;render()});
+  document.querySelectorAll('.cobtn').forEach(b=>b.onclick=()=>{CV=true;EPV=false;PIE=false;render()});
+}
+
+
+/* ---- 大计划:拍摄日程表(PDF) + 数据库场次 合并统计(独立页面,不影响其他统计) ---- */
+let PLAN=null,PLANERR=false,planSort='p',planLead='秦长歌/明霜',COV=false,SCH=false;
+function coHTML(all,roles,lead,selId){
+  const bar=pc=>`<div class="meter"><i style="width:${Math.min(100,pc)}%"></i></div>`;
+  if(!roles.includes(lead))lead=PINK;
+  const mine=all.filter(x=>x.cast.has(lead)),mn=mine.length,mp=mine.reduce((a,x)=>a+(x.p||0),0);
+  const co=roles.filter(r=>r!==lead).map(r=>{let n=0,p=0;mine.forEach(x=>{if(x.cast.has(r)){n++;p+=x.p||0}});return{r,n,p}}).filter(x=>x.n).sort((a,b)=>b.p-a.p||b.n-a.n);
+  const solo=mine.filter(x=>x.cast.size===1),sn=solo.length,sp=solo.reduce((a,x)=>a+(x.p||0),0);
+  const row=(label,n,p)=>{const ps=mn?n/mn*100:0,pp=mp?p/mp*100:0;return`<div class="st-card"><div class="h"><b>${esc(label)}</b></div><div class="r"><span>场次</span><strong>${n}</strong><em>${ps.toFixed(1)}%</em></div>${bar(ps)}<div class="r"><span>页数</span><strong>${fmt(p)}</strong><em>${pp.toFixed(1)}%</em></div>${bar(pp)}</div>`};
+  return `<h3 style="margin:14px 0 6px;font-size:16px">角色对戏占比<small style="margin-left:8px;color:var(--mute);font-weight:400">谁跟谁一起出场</small></h3>
+  <div class="note" style="margin:0 0 10px"><p class="coq"><select id="${selId}" class="rolesel">${(()=>{const top=['秦长歌/明霜','萧缺'].filter(r=>roles.includes(r));return[...top,...roles.filter(r=>!top.includes(r))]})().map(r=>`<option ${r===lead?'selected':''}>${esc(r)}</option>`).join('')}</select><span>的戏,有多少和别的角色同场。</span></p>
+  <p>该角色共有 <span class="hl">${mn}</span> 场、<span class="hl">${fmt(mp)}</span> 页。占比 = 和某角色同场的场次(页数)÷ 她自己的总场次(页数)。一场里有好几个人时,每个人各算一次,所以占比加起来会超过 100%。</p></div>
+  <div class="mcards copage">${row('只有 TA 一人(没有其他角色)',sn,sp)}${co.map(x=>row('和 '+x.r+' 同场',x.n,x.p)).join('')}</div>`;
+}
+function renderCoStats(rows){
+  const all=rows.map(s=>({p:num(s.pages),cast:new Set(S.roles.filter(r=>s.cast[r]===1))}));
+  if(!S.roles.includes(CLEAD))CLEAD=PINK;
+  $('#vStats').innerHTML='<button class="coback" type="button">← 返回长条图</button>'+coHTML(all,S.roles,CLEAD,'coLead');
+  $('#coLead').onchange=e=>{CLEAD=e.target.value;render()};
+}
+function renderPlan(){
+  const box=$('#vStats');
+  if(!PLAN){box.innerHTML=`<div class="empty">${PLANERR?'大计划资料读取失败,请重新整理页面':'读取大计划资料中…'}</div>`;return}
+  if(SCH){renderSched(box);return}
+  const m=new Map();
+  PLAN.scenes.forEach(s=>m.set(s.ep+'|'+s.sc,{p:num(s.pages),cast:new Set(s.cast),src:'plan'}));
+  let ov=0,ovp=0;
+  // 拍摄时场号拆分/改字母(如 日程 15集4场 → 场次表 4A、4B;8集21A → 21B):以场次表为准,扣除日程表对应的那一场
+  const dbk=new Set(S.scenes.map(s=>String(s.ep)+'|'+String(s.sc))),nb=x=>{const q=/^(\d+)[A-Z]?$/.exec(String(x));return q?q[1]:null};
+  const gone=new Set();
+  PLAN.scenes.forEach(ps=>{const pk=ps.ep+'|'+ps.sc;if(!dbk.has(pk)&&!gone.has(pk)&&S.scenes.some(d=>sameScene(d,ps))){gone.add(pk);ov++;ovp+=num(ps.pages)||0;m.delete(pk)}});
+  S.scenes.forEach(s=>{const k=String(s.ep)+'|'+String(s.sc);const o=m.get(k),cs=new Set(S.roles.filter(r=>s.cast[r]===1));if(o){ov++;ovp+=o.p||0}m.set(k,{p:num(s.pages)!==null?num(s.pages):(o?o.p:null),cast:cs,src:'db'})}); // 同一集同一场两边都有时只算一次:页数和角色都以数据库(每天的场次表)为准
+  const all=[...m.values()],nsc=all.length,total=all.reduce((a,x)=>a+(x.p||0),0);
+  const roles=[...S.roles];PLAN.scenes.forEach(s=>s.cast.forEach(r=>{if(!roles.includes(r))roles.push(r)}));
+  const list=roles.map(r=>{let p=0,n=0;all.forEach(x=>{if(x.cast.has(r)){n++;p+=x.p||0}});return{r,p,n}}).sort((a,b)=>planSort==='n'?(b.n-a.n||b.p-a.p):(b.p-a.p||b.n-a.n));
+  const bar=pc=>`<div class="meter"><i style="width:${Math.min(100,pc)}%"></i></div>`;
+  box.innerHTML=`<div class="bar sortbar topbtns"><button class="epbtn" id="plCo" type="button">🤝 角色对戏占比</button><button class="epbtn" id="plSch" type="button">📅 11月大计划日程</button></div>
+  <div class="note"><b>大计划统计的算法</b>
+    <p>把「拍摄日程表」(PDF,${PLAN.scenes.length} 场)和网站数据库里的场次(${S.scenes.length} 场)合在一起统计,同一集同一场两边都有时只算一次(已拍过的重复场次共 ${ov} 场、${fmt(ovp)} 页,已从日程表里扣除;已拍的场次页数和角色都以每天的场次表(数据库)为准;集数和场号一样就是同一场,内容有改也不算加戏;日程表的一场在场次表拆成 A、B 场的,如 15集4场→4A、4B,也算同一场、不算加戏,只算场次表的),合计 <span class="hl">${nsc}</span> 场、<span class="hl">${fmt(total)}</span> 页。</p>
+    <p>场次占比 = 该角色有戏的场次数 ÷ 总场次数;页数占比 = 该角色所在场次的页数 ÷ 总页数。一场戏有多位角色时每人各算一次,所以占比加起来会超过 100%。</p>
+    <p>⚠ 拍摄日程表只标出 5 位主要角色(祝阮/阮卿卿、陆封、夏玉尔、沈心阳、芈大丽),其他角色的数字只来自数据库,会偏低。</p>
+    <p>这一页是独立统计,不影响「戏份占比」和其他页面。</p></div>
+  <div class="sum"><div><b>${nsc}</b><span>总场次</span></div><div><b>${fmt(total)}</b><span>总页数</span></div><div><b>${PLAN.scenes.length}</b><span>日程表</span></div><div><b>${S.scenes.length}</b><span>数据库</span></div></div>
+  <p class="dedup">重复已扣除:<b>−${ov} 场、−${fmt(ovp)} 页</b>(日程表和数据库都有的场次只算一次)</p>
+  <div class="bar sortbar" style="margin-top:14px"><span class="hint">排序:</span><button class="sortb ${planSort==='p'?'on':''}" data-s="p">按页数</button><button class="sortb ${planSort==='n'?'on':''}" data-s="n">按场次</button></div>
+  <div class="mcards" style="margin-top:10px">`+
+  list.map((x,i)=>{const ps=nsc?x.n/nsc*100:0,pp=total?x.p/total*100:0;return`<div class="st-card ${x.r===PINK?'pinkrow':''}"><div class="h"><span class="no">${i+1}</span><b>${esc(x.r)}</b></div><div class="r"><span>场次</span><strong>${x.n}</strong><em>${ps.toFixed(1)}%</em></div>${bar(ps)}<div class="r"><span>页数</span><strong>${fmt(x.p)}</strong><em>${pp.toFixed(1)}%</em></div>${bar(pp)}</div>`}).join('')+
+  `</div><div class="scroll mtable plbar" style="margin-top:10px"><table><thead><tr><th>#</th><th>角色</th><th class="num">场次</th><th class="num">场次占比</th><th style="width:22%"></th><th class="num">页数</th><th class="num">页数占比</th><th style="width:22%"></th></tr></thead><tbody>`+
+  list.map((x,i)=>{const ps=nsc?x.n/nsc*100:0,pp=total?x.p/total*100:0;return`<tr class="${x.r===PINK?'pinkrow':''}"><td>${i+1}</td><td><b>${x.r.split('/').map(p=>`<span style="white-space:nowrap">${esc(p)}</span>`).join('/<wbr>')}</b></td><td class="num">${x.n}</td><td class="num">${ps.toFixed(1)}%</td><td>${bar(ps)}</td><td class="num">${fmt(x.p)}</td><td class="num">${pp.toFixed(1)}%</td><td>${bar(pp)}</td></tr>`}).join('')+`</tbody></table></div>`;
+  $('#plCo').onclick=()=>{COV=true;render()};$('#plSch').onclick=()=>{SCH=true;render()};
+  if(!roles.includes(planLead))planLead=PINK;
+  if(COV){box.innerHTML='<button class="coback" type="button">← 返回大计划统计</button>'+coHTML(all,roles,planLead,'planLead');$('#planLead').onchange=e=>{planLead=e.target.value;render()}}
+  else{document.querySelectorAll('.sortb').forEach(b=>b.onclick=()=>{planSort=b.dataset.s;render()});return}
+  document.querySelectorAll('.sortb').forEach(b=>b.onclick=()=>{planSort=b.dataset.s;render()});
+}
+
+
+/* ---- 大计划日程:把 PDF 拍摄日程做成跟「场次表」一样的版面(电脑版表格 / 手机版卡片) ---- */
+let SCHF={eps:[],dates:[],roles:[],q:'',diff:false,un:false,over:false},SCHSORT={key:'date',dir:1,auto:true};
+const SCOLS=[['date','日期','c1'],['ep','集','c2'],['sc','场',''],['light','气氛',''],['io','内外',''],['season','季节',''],['summary','内容概要',''],['cast','角色','nos'],['pages','页数','num'],['loc','实拍景地',''],['region','地区',''],['main','主场景',''],['sub','次场景',''],['hint','现场提示',''],['diff','与实拍差异','nos']];
+function renderSched(box){
+  const P=PLAN,eps=[...new Set([...P.scenes,...planAdded()].map(s=>+s.ep))].sort((a,b)=>a-b);
+  box.innerHTML=`<button class="coback" type="button">← 返回大计划统计</button>
+  <h3 style="margin:14px 0 10px;font-size:16px">大计划日程<small style="margin-left:8px;color:var(--mute);font-weight:400">拍摄日程表(PDF)<span style="margin-left:8px;white-space:nowrap;font-weight:700;color:#4ade80">${P.days[0].m}/${P.days[0].d} – ${P.days[P.days.length-1].m}/${P.days[P.days.length-1].d}</span></small></h3>
+  <div class="bar schf">
+    <label>集数<button type="button" id="sEpBtn" class="datebtn">全部</button></label>
+    <label>拍摄日期<button type="button" id="sDayBtn" class="datebtn">全部</button></label>
+    <label>角色<button type="button" id="sRoBtn" class="datebtn">全部</button></label>
+    <div class="full srow"><label>搜寻<input id="sQ" placeholder="场景、内容…" value="${esc(SCHF.q)}"></label><div class="ckgrp"><label class="diffck"><input type="checkbox" id="sDiff" ${SCHF.diff?'checked':''}><span>只看已拍有差异</span></label><label class="diffck"><input type="checkbox" id="sUn" ${SCHF.un?'checked':''}><span>未拍摄场次</span></label><label class="diffck"><input type="checkbox" id="sOver" ${SCHF.over?'checked':''}><span>过期未拍的场次</span></label></div></div>
+  </div>
+  <div id="schList" style="margin-top:12px"></div>`;
+  $('#sEpBtn').onclick=()=>openEp('plan');EPM='plan';epLabel();
+  $('#sDayBtn').onclick=()=>openCal('plan');CALM='plan';calLabel();
+  $('#sRoBtn').onclick=()=>openRo('plan');ROM='plan';roLabel();
+  $('#sQ').oninput=e=>{SCHF.q=e.target.value;schList()};
+  $('#sDiff').onchange=e=>{SCHF.diff=e.target.checked;if(SCHF.diff){SCHF.un=false;SCHF.over=false;$('#sUn').checked=false;$('#sOver').checked=false}schList()};
+  $('#sUn').onchange=e=>{SCHF.un=e.target.checked;if(SCHF.un){SCHF.diff=false;SCHF.over=false;$('#sDiff').checked=false;$('#sOver').checked=false}schList()};
+  $('#sOver').onchange=e=>{SCHF.over=e.target.checked;if(SCHF.over){SCHF.diff=false;SCHF.un=false;$('#sDiff').checked=false;$('#sUn').checked=false}schList()};
+  schList();
+}
+// 同一场的判断:集数和场号一致就是同一场(不管内容概要、主场景有没有改);日程表是纯数字场号、场次表拆成 4A、4B,也是同一场(拆开拍)对不对得上
+const _nb=x=>{const q=/^(\d+)[A-Z]?$/.exec(String(x));return q?q[1]:null};
+const _nz=t=>toSimp(String(t||'').replace(/【[^】]*】?/g,'').replace(/[\s\p{P}\p{S}]/gu,''));
+const _sim=(a,b)=>{a=_nz(a);b=_nz(b);if(!a||!b)return 1;if(a.includes(b)||b.includes(a))return 1;const g=t=>{const o=new Set();for(let i=0;i<t.length-1;i++)o.add(t.slice(i,i+2));return o},A=g(a),B=g(b);if(!A.size||!B.size)return 1;let c=0;A.forEach(x=>{if(B.has(x))c++});return 2*c/(A.size+B.size)};
+const NOTSAME=[['25','24']]; // 用户指定:场次表 25集24(青雷闯讼铺抓人)不是日程表 25集24(师爷报告青雷报官):算新加场次(场次更动),日程那场仍未拍
+const isNS=(ep,sc)=>NOTSAME.some(m=>m[0]===String(ep)&&m[1]===String(sc));
+const SAME_MANUAL=[['20','21','19'],['26','20','21']]; // 用户指定:[集, 场次表场号, 日程表场号] 内容相同、拍摄时改了场号(20集19→21:乔装货郎盯梢)
+let _LN=null;
+function lnOf(s){ // 场次表没有日夜/内外:从大计划对应的场次带过来(大计划没写就不标);对应多场且不同时,各取不重复的值
+  if(!PLAN)return'';
+  if(!_LN||_LN.n!==S.scenes.length||_LN.p!==PLAN){_LN={n:S.scenes.length,p:PLAN,m:new Map(),t:new Map()};
+    S.scenes.forEach(d=>{const ms=PLAN.scenes.filter(ps=>(String(ps.ep)===String(d.ep)&&String(ps.sc)===String(d.sc)&&!isNS(d.ep,d.sc))||sameScene(d,ps));
+      const u=k=>[...new Set(ms.map(p=>String(p[k]||'').trim()).filter(Boolean))];
+      const a=u('light').join('/'),b=u('io').join('/');_LN.m.set(d.id,[a,b].filter(Boolean).join(' · '));_LN.t.set(d.id,[a,b])})}
+  return _LN.m.get(s.id)||'';
+}
+function lnTags(s){lnOf(s);return(_LN&&_LN.t.get(s.id))||['','']}
+const MERGED=[['14','23','23B']]; // 用户指定:日程表 14集23A、23B 实拍合并成 23场(23A 走下面的 A 规则)
+function sameScene(d,ps){
+  if(String(d.ep)!==String(ps.ep))return false;
+  if(isNS(d.ep,d.sc))return false;
+  if(String(d.sc)===String(ps.sc))return true;
+  if(SAME_MANUAL.some(m=>m[0]===String(d.ep)&&m[1]===String(d.sc)&&m[2]===String(ps.sc)))return true;
+  if(MERGED.some(m=>m[0]===String(d.ep)&&m[1]===String(d.sc)&&m[2]===String(ps.sc)))return true;
+  if(/^\d+$/.test(String(d.sc))&&String(ps.sc)===String(d.sc)+'A')return true; // 场次表的 23场 = 日程表的 23A(内容同、页数可能不同;23B 仍是另一场)
+  if(!/^\d+$/.test(String(ps.sc))||_nb(d.sc)!==String(ps.sc))return false;
+  return true; // 日程表的 4场 → 场次表的 4A、4B:算同一场拆开拍,不算加戏
+}
+function planAdded(){ // 加戏:场次表(已拍)里有、拍摄日程表里找不到对应场的场次
+  const nb=x=>{const q=/^(\d+)[A-Z]?$/.exec(String(x));return q?q[1]:null},dbk=new Set(S.scenes.map(d=>String(d.ep)+'|'+String(d.sc)));
+  const pk=new Set(PLAN.scenes.map(p=>p.ep+'|'+p.sc));
+  const d0=PLAN.days[0],inPlan=d=>{const t=[...String(d.date||'').matchAll(/(\d+)\D+(\d+)/g)];return t.some(q=>+q[1]*100+ +q[2]>=d0.m*100+d0.d)}; // 日程表之前(10/24 以前)拍的不算加戏
+  return S.scenes.filter(d=>{if(!inPlan(d)&&!PLAN.scenes.some(p=>String(p.ep)===String(d.ep)&&nb(p.sc)!==null&&nb(p.sc)===nb(d.sc)))return false;const k=String(d.ep)+'|'+String(d.sc);if(pk.has(k)&&!isNS(d.ep,d.sc))return false;const n=nb(d.sc);
+    return !PLAN.scenes.some(p=>!dbk.has(p.ep+'|'+p.sc)&&sameScene(d,p))})
+   .map(d=>({ep:d.ep,sc:d.sc,pages:num(d.pages),pnote:d.pnote||'',cast:S.roles.filter(r=>d.cast[r]===1),loc:d.place||'',region:'',main:d.main||'',sub:d.sub||'',light:d.light||'',io:'',season:'',summary:d.summary||'',add:true,day:null,dbdate:String(d.date||'')}))
+   .sort((a,b)=>(+a.ep-+b.ep)||(parseInt(String(a.sc))||0)-(parseInt(String(b.sc))||0)||String(a.sc).localeCompare(String(b.sc)));
+}
+/* 大计划日程与已拍场次的差异(日程页和场次表共用) */
+const NEWTXT='原大计划无,新加场次',CHGTXT='场次更动',newTxt=x=>isNS(x.ep,x.sc)?CHGTXT:NEWTXT;
+function planDiff(){
+  const P=PLAN,days=P.days,ADD=planAdded();
+  const IDS=new Map(),shot=new Set(S.scenes.filter(s=>!isNS(s.ep,s.sc)).map(s=>String(s.ep)+'|'+String(s.sc)));
+  { // 拍摄时场号拆分/改字母(15集4场→4A/4B、8集21A→21B):日程表对应的那一场也标已拍
+    const nb=x=>{const q=/^(\d+)[A-Z]?$/.exec(String(x));return q?q[1]:null},dbk=new Set(shot);
+    P.scenes.forEach(ps=>{const pk=ps.ep+'|'+ps.sc;if(!dbk.has(pk)&&S.scenes.some(d=>sameScene(d,ps)))shot.add(pk)});
+  }
+  // 已拍与日程表的差异:页数、场号(拆分/改字母)、日程表有记录的几位主要角色
+  const diffOf=ps=>{
+    const pk=ps.ep+'|'+ps.sc,nb=x=>{const q=/^(\d+)[A-Z]?$/.exec(String(x));return q?q[1]:null};
+    let ms=S.scenes.filter(d=>!isNS(d.ep,d.sc)&&String(d.ep)+'|'+String(d.sc)===pk),split=false;
+    if(!ms.length){ms=S.scenes.filter(d=>sameScene(d,ps));split=true}
+    if(!ms.length)return null;
+    IDS.set(pk,ms.map(d=>d.id));
+    const out=[],mg=split&&ms.length===1?MERGED.find(m=>m[0]===String(ps.ep)&&m[1]===String(ms[0].sc)&&(ps.sc===m[2]||ps.sc===m[1]+'A')):null,
+      mgp=mg?P.scenes.filter(q=>q.ep===ps.ep&&(q.sc===mg[2]||q.sc===mg[1]+'A')):null;
+    if(mg)out.push('日程 '+mgp.map(q=>q.sc).sort().join('、')+' 实拍合并成 '+mg[1]+'场');
+    else if(split&&ms.length===1&&String(ms[0].sc)!==String(ps.sc))out.push('场号:日程 '+ps.sc+' → 实拍 '+ms[0].sc);
+    else if(split)out.push('拆成 '+ms.length+' 场戏:'+ms.map(d=>d.sc+'场'+(num(d.pages)!==null?' '+fmt(num(d.pages))+'页':'')+(d.summary?'「'+cut(d.summary.replace(/【[^】]*】/g,''))+'」':'')).join('、'));
+    const dd=days[ps.day],dts=[];
+    let anyd=false;ms.forEach(d=>{[...String(d.date||'').matchAll(/(\d+)\D+?(\d+)/g)].forEach(q=>{const t=+q[1]+'/'+ +q[2];if(dd&&(+q[1]!==dd.m||+q[2]!==dd.d))anyd=true;if(!dts.includes(t))dts.push(t)})});
+    if(anyd&&dts.length)out.push('拍摄日期:原定 '+dd.m+'/'+dd.d+' → 实拍 '+dts.join('、'));
+    const dp=ms.map(d=>num(d.pages));
+    const pp=mg?Math.round(mgp.reduce((a,q)=>a+(q.pages||0),0)*100)/100:ps.pages;
+    if(dp.every(v=>v!==null)&&pp!=null){const t=Math.round(dp.reduce((a,v)=>a+v,0)*100)/100;if(Math.abs(t-pp)>0.001)out.push('页数:日程 '+fmt(pp)+' → 实拍 '+fmt(t)+(ms.length>1?'('+dp.map(fmt).join('+')+')':''))}
+    const dc=new Set();ms.forEach(d=>S.roles.forEach(r=>{if(d.cast[r]===1)dc.add(r)}));
+    const tracked=P.roles;
+    const uq=(ps.unsure||[]).filter(r=>ps.cast.includes(r)); // 日程表上标「？」的角色:到时候有拍或没拍都要注记
+    const pcast=mg?[...new Set(mgp.flatMap(q=>q.cast))]:ps.cast,miss=tracked.filter(r=>pcast.includes(r)&&!dc.has(r)&&!uq.includes(r)),extra=tracked.filter(r=>dc.has(r)&&!pcast.includes(r));
+    const uyes=uq.filter(r=>dc.has(r)),uno=uq.filter(r=>!dc.has(r));
+    if(uyes.length)out.push('日程标「？」的 '+uyes.join('、')+':实拍有拍到');
+    if(uno.length)out.push('日程标「？」的 '+uno.join('、')+':实拍没有');
+    if(miss.length)out.push('日程有、实拍没有:'+miss.join('、'));
+    if(extra.length)out.push('实拍多了:'+extra.join('、'));
+    return out;
+  };
+  const today=(()=>{const n=new Date();return n.getMonth()*100+n.getDate()})();
+  const dfl=ps=>{if(ps.add)return[newTxt(ps)];
+    if(!shot.has(ps.ep+'|'+ps.sc)){ // 还没拍:日程日期已经过了、场次表还没有这场 → 过期未拍(取消?顺延?);将来拍了,就改归「和大计划有差异」
+      const u=(ps.unsure||[]).filter(r=>ps.cast.includes(r)),d=days[ps.day];
+      if(!(d&&(d.m-1)*100+d.d<today))return null;
+      return['未拍（取消?顺延?）']}
+    const o=diffOf(ps);return o&&o.length?o:null};
+  const over=ps=>!ps.add&&!shot.has(ps.ep+'|'+ps.sc)&&!!dfl(ps); // 过期未拍
+  const dfHTML=ps=>{const o=dfl(ps);return o?`<div class="pl-diff${o.length===1&&(o[0]===NEWTXT||o[0]===CHGTXT)?' pl-new':''}${over(ps)?' pl-over':''}">${o.map(esc).join('<br>')}</div>`:''};
+  return{P,days,ADD,shot,diffOf,dfl,dfHTML,IDS,over};
+}
+let DBDIFF_C=null;
+function dbDiff(){ // 场次表用:场次编号 → 与大计划的差异说明
+  if(!PLAN)return new Map();
+  const {P,diffOf,ADD,IDS}=planDiff(),m=new Map(),put=(id,t)=>{if(!m.has(id))m.set(id,[]);t.forEach(x=>{if(!m.get(id).includes(x))m.get(id).push(x)})};
+  P.scenes.forEach(ps=>{const o=diffOf(ps);if(o&&o.length)(IDS.get(ps.ep+'|'+ps.sc)||[]).forEach(id=>put(id,o))});
+  ADD.forEach(x=>S.scenes.filter(d=>String(d.ep)===String(x.ep)&&String(d.sc)===String(x.sc)).forEach(d=>put(d.id,[newTxt(d)])));
+  return m;
+}
+function schList(){
+  const {P,days,ADD,shot,diffOf,dfl,dfHTML,over}=planDiff();
+  const q=toSimp(SCHF.q.trim()).split(/\s+/).filter(Boolean);
+  const hay=s=>{const d=s.add?{n:'',m:'',d:'',wk:'',wx:'',grp:''}:days[s.day];return toSimp([s.add?'新加场次 原大计划无 加戏 '+s.dbdate:'',s.ep,s.sc,s.loc,s.region,s.main,s.sub,s.hint,s.act,s.light,s.io,s.season,s.summary,s.cast.join(' '),'DAY'+d.n,d.m+'月'+d.d+'日',d.m+'.'+d.d,d.m+'/'+d.d,d.wk,d.wx,d.grp,(s.add||shot.has(s.ep+'|'+s.sc))?'已拍':''].join(' '))};
+  let rows=[...P.scenes,...(SCHF.dates.length?[]:ADD)].map((s,i)=>({s,i})).filter(x=>(!SCHF.eps.length||SCHF.eps.includes(+x.s.ep))&&(!SCHF.dates.length||(!x.s.add&&SCHF.dates.includes(`${YEAR}-${pad(days[x.s.day].m)}-${pad(days[x.s.day].d)}`)))&&(!SCHF.roles.length||SCHF.roles.every(r=>x.s.cast.includes(r)))&&(!q.length||q.every(t=>hay(x.s).includes(t)))&&(!SCHF.diff||(dfl(x.s)&&!over(x.s)))&&(!SCHF.over||over(x.s))&&(!SCHF.un||(!x.s.add&&!shot.has(x.s.ep+'|'+x.s.sc))));
+  const scNo=v=>{const m=String(v).match(/\d+/);return m?+m[0]:0};
+  const eff=(SCHF.eps.length&&(SCHSORT.auto||VIEW==='card'))?{key:SCHF.eps.length>1?'ep':'sc',dir:1}:SCHSORT; // 选了某一集:预设按场号递增,才看得出剧情发展顺序
+  const k=eff.key,dir=eff.dir;
+  const val=x=>k==='date'?x.i:k==='ep'?+x.s.ep:k==='pages'?(x.s.pages==null?null:x.s.pages):k==='hint'?[x.s.hint,x.s.act].filter(Boolean).join(' '):(x.s[k]||'');
+  rows.sort((a,b)=>{const va=val(a),vb=val(b);let c;
+    if(va===null||vb===null){if(va===vb)c=0;else return va===null?1:-1}
+    else c=typeof va==='number'?va-vb:String(va).localeCompare(String(vb),'zh',{numeric:true});
+    c=c*dir;
+    return c||((+a.s.ep-+b.s.ep)||(scNo(a.s.sc)-scNo(b.s.sc))||(a.i-b.i))});
+  rows=[...rows.filter(x=>!x.s.add),...rows.filter(x=>x.s.add)]; // 加戏的场次排在最后(选了某一集就是那一集的最后面)
+  const tp=rows.reduce((a,x)=>a+(x.s.pages||0),0);
+  const chips=s=>s.cast.map(r=>`<span class="chip rc ${r===PINK?'pink':''}">${esc(r)}${(s.unsure||[]).includes(r)?'？':''}</span>`).join('');
+  const dm=s=>{const q=/^(\d+)\D+(\d+)/.exec(s.dbdate||'');return q?q[1]+'/'+q[2]:(s.dbdate||'')};
+  const card=x=>{const s=x.s,d=s.add?{m:'',d:'',n:'',wk:''}:days[s.day],isShot=s.add||shot.has(s.ep+'|'+s.sc);
+    const meta=[s.loc,s.region,s.main,s.sub].filter(Boolean).map(esc).join(' · ');
+    const tag=(c,tx)=>tx?`<span class="pl-tag ${c}">${esc(tx)}</span>`:'';
+    const night=/夜/.test(s.light||'');
+    return`<div class="pl-card ${isShot?'shot':''}"><div class="h"><b>${s.add?esc(dm(s)):d.m+'/'+d.d}</b><span>第${esc(s.ep)}集 · ${esc(s.sc)}场</span>${isShot?'<i class="pl-shot">已拍</i>':''}<em>${s.pages!=null?fmt(s.pages)+'<small>页</small>':esc(s.pnote||'')}</em></div>
+    ${dfHTML(s)}<div class="tags">${s.add?'':tag('dt','DAY'+d.n+' '+d.wk)}${tag(night?'nt':'dy',s.light)}${tag('',s.io)}${tag('',s.season)}</div>
+    ${meta?`<div class="m">${meta}</div>`:''}${(s.hint||s.act)?`<div class="hn">⚠ ${esc([s.hint,s.act].filter(Boolean).join(' · '))}</div>`:''}${s.summary?`<div class="t">${esc(cut(s.summary))}</div>`:''}
+    ${s.cast.length?`<div class="c">${chips(s)}</div>`:''}</div>`};
+  const trow=x=>{const s=x.s,d=s.add?{m:'',d:'',n:'',wk:''}:days[s.day],isShot=s.add||shot.has(s.ep+'|'+s.sc),night=/夜/.test(s.light||'');
+    return`<tr class="${isShot?'shotrow':''}${dfl(s)&&!over(s)?' hasdiff':''}"><td class="c1">${s.add?esc(dm(s))+'<br><small>加戏</small>':d.m+'/'+d.d+'<br><small>DAY'+d.n+'</small>'}</td><td class="c2">${esc(s.ep)}</td><td>${esc(s.sc)}${dfl(s)&&!over(s)?(s.add?'<b class="dfx" title="原大计划无">⭐</b>':'<b class="dfx" title="和实拍有差异">♦️</b>'):''}${isShot?'<i class="pl-shot">已拍</i>':''}</td><td class="${night?'ntc':''}">${esc(s.light||'')}</td><td>${esc(s.io||'')}</td><td>${esc(s.season||'')}</td><td class="wrap sm">${esc(cut(s.summary||''))}</td><td class="wrap">${chips(s)}</td><td class="num">${s.pages!=null?fmt(s.pages):esc(s.pnote||'')}</td><td class="wrap">${esc(s.loc||'')}</td><td>${esc(s.region||'')}</td><td class="wrap">${esc(s.main||'')}</td><td class="wrap">${esc(s.sub||'')}</td><td class="wrap hn">${esc([s.hint,s.act].filter(Boolean).join(' · '))}</td><td class="wrap dfc">${dfHTML(s)}</td></tr>`};
+  const head=SCOLS.map(([key,lab,cls])=>key==='cast'||key==='diff'?`<th>${lab}</th>`:`<th class="sortable${cls?' '+cls:''}${k===key?' sorted':''}" data-sk="${key}" title="点一下排序,再点一下反向">${lab}<i>${k===key?(dir>0?'▲':'▼'):''}</i></th>`).join('');
+  $('#schList').innerHTML=rows.length?`<div class="pl-cards"><div class="pl-list">${rows.map(card).join('')}</div><div class="tot" style="color:var(--accent);font-size:13px;padding:10px 4px">合计 ${rows.length} 场 · ${fmt(tp)} 页</div></div>
+  <div class="scroll mtable pl-tblwrap"><table class="pl-tbl"><thead><tr>${head}</tr></thead><tbody>${rows.map(trow).join('')}</tbody><tfoot><tr><th colspan="9" style="text-align:left">合计 ${rows.length} 场</th><th colspan="6" class="num" style="text-align:left">${fmt(tp)} 页</th></tr></tfoot></table></div>
+  <p class="hint">点表头可以排序,再点一次反向。</p>`:'<div class="empty">没有符合的场次</div>';
+  document.querySelectorAll('#schList th.sortable').forEach(th=>th.onclick=()=>{const kk=th.dataset.sk;SCHSORT=k===kk?{key:kk,dir:-dir}:{key:kk,dir:1};schList()});
+}
+/* ---- scene dialog ---- */
+function openScene(id){
+  if(!ADMIN)return;
+  editing=id;
+  const s=id?S.scenes.find(x=>x.id===id):{date:'',ep:'',sc:'',light:'',place:'',main:'',sub:'',pages:'',summary:'',cast:{}};
+  const f=$('#form');
+  for(const k of ['sc','light','place','main','sub','summary'])f[k].value=cut2(s[k]);
+  fillEps(s.ep);
+  const dd=dateToInput(s.date);f.d1.value=dd[0]||'';f.d2.value=dd[1]||'';f.d1.dataset.raw=s.date||'';f.d1.dataset.o1=f.d1.value;f.d1.dataset.o2=f.d2.value;
+  f.pages.value=num(s.pages)!==null?s.pages:(s.pnote||'');
+  draft={...s.cast};
+  draftPhoto=s.photo||'';drawPhoto();
+  $('#dTitle').textContent=id?'编辑场次':'新增场次';
+  $('#dDel').style.display=id?'':'none';
+  drawRoles();$('#dlg').showModal();
+}
+const cut2=v=>v==null?'':String(v);
+const YEAR=new Date().getFullYear();
+const pad=n=>String(n).padStart(2,'0');
+function dateToInput(s){const m=String(s||'').match(/(\d{1,2})\.(\d{1,2})/g)||[];return m.map(x=>{const[a,b]=x.split('.');return`${YEAR}-${pad(a)}-${pad(b)}`})}
+function inputToDate(v){if(!v)return'';const[,m,d]=v.split('-');return`${+m}.${pad(d)}`}
+function fillEps(cur){
+  const sel=$('#form').ep;let o='<option value="">请选择</option>';
+  const n=Math.max(40,+cur||0);for(let i=1;i<=n;i++)o+=`<option value="${i}">第 ${i} 集</option>`;
+  sel.innerHTML=o;sel.value=cur||'';
+}
+function drawRoles(){
+  $('#dRoles').innerHTML=S.roles.map(r=>`<button type="button" class="${draft[r]?'s'+draft[r]:''} ${r===PINK?'pink':''}" data-r="${esc(r)}">${esc(r)}</button>`).join('')||'<span class="hint">尚无角色,请到「选单/角色管理」新增。</span>';
+  document.querySelectorAll('#dRoles button').forEach(b=>b.onclick=()=>{const r=b.dataset.r;if(draft[r])delete draft[r];else draft[r]=1;drawRoles()});
+}
+$('#form').onsubmit=e=>{
+  e.preventDefault();
+  const f=e.target,v=n=>f[n].value.trim();
+  const pv=v('pages'),pn=pv===''?null:Number(pv);
+  const sep='/';
+  let d1=inputToDate(f.d1.value),d2=inputToDate(f.d2.value);
+  if(!d1&&d2){d1=d2;d2=''}
+  const dateStr=(f.d1.value===f.d1.dataset.o1&&f.d2.value===f.d1.dataset.o2)?f.d1.dataset.raw:(d2&&d2!==d1?d1+sep+d2:d1);
+  const rec={date:dateStr,ep:+v('ep'),sc:v('sc'),light:v('light'),place:v('place'),main:v('main'),sub:v('sub'),summary:v('summary'),
+    pages:pn!==null&&!isNaN(pn)?pn:null,pnote:pn!==null&&isNaN(pn)?pv:'',cast:{...draft}};
+  if(draftPhoto)rec.photo=draftPhoto;
+  if(editing){const t=S.scenes.find(x=>x.id===editing);Object.assign(t,rec);if(!draftPhoto)delete t.photo}
+  else S.scenes.push({id:Math.max(0,...S.scenes.map(x=>x.id))+1,...rec});
+  $('#dlg').close();commit();
+};
+$('#dCancel').onclick=()=>$('#dlg').close();
+
+/* ---- 现场照片:上传时先在浏览器里压缩(长边≤1000px,JPEG),跟场次数据一起保存 ---- */
+let draftPhoto='';
+function drawPhoto(){
+  const has=!!draftPhoto;
+  $('#pPrev').hidden=!has;if(has)$('#pPrev').src=phSrc(draftPhoto);else $('#pPrev').removeAttribute('src');
+  $('#pClear').hidden=!has;$('#pPick').textContent=has?'更换图片':'上传图片';
+  $('#pHint').textContent=has?(draftPhoto.startsWith('data:')?`已压缩,约 ${Math.round(draftPhoto.length*0.75/1024)} KB`:'已上传'):'上传后会自动压缩,不会占太多空间。';
+}
+function compressImage(file){
+  return new Promise((res,rej)=>{
+    const url=URL.createObjectURL(file),img=new Image();
+    img.onload=()=>{
+      URL.revokeObjectURL(url);
+      const enc=(max,q)=>{
+        const r=Math.min(1,max/Math.max(img.naturalWidth,img.naturalHeight)),w=Math.max(1,Math.round(img.naturalWidth*r)),h=Math.max(1,Math.round(img.naturalHeight*r));
+        const c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');
+        g.fillStyle='#fff';g.fillRect(0,0,w,h);g.drawImage(img,0,0,w,h);
+        return c.toDataURL('image/jpeg',q);
+      };
+      let out=enc(1000,.72);
+      if(out.length>350000)out=enc(800,.6); // 仍然太大就再压一次
+      res(out);
+    };
+    img.onerror=()=>{URL.revokeObjectURL(url);rej(new Error('bad image'))};
+    img.src=url;
+  });
+}
+$('#pPick').onclick=()=>$('#pFile').click();
+$('#pFile').onchange=async e=>{
+  const f=e.target.files[0];e.target.value='';
+  if(!f)return;
+  $('#pHint').textContent='处理中…';
+  try{
+    const data=await compressImage(f);
+    if(SERVER){$('#pHint').textContent='上传中…';draftPhoto=await uploadPhotoData(data)} // 有数据库:传到服务器,存网址
+    else draftPhoto=data;
+  }catch(_){alert('这张图片无法读取或上传,请换一张再试(支持 JPG、PNG 等常见格式)。')}
+  drawPhoto();
+};
+$('#pClear').onclick=()=>{draftPhoto='';drawPhoto()};
+function showBig(src){if(!src)return;$('#pBig').src=src;$('#pdlg').showModal()}
+$('#pdlg').onclick=()=>$('#pdlg').close();
+$('#dDel').onclick=()=>{if(confirm('确定删除这一场?')){S.scenes=S.scenes.filter(x=>x.id!==editing);$('#dlg').close();commit()}};
+$('#addScene').onclick=()=>openScene(0);
+
+/* ---- scene detail dialog (所有人可看;管理员可从这里进入编辑) ---- */
+let detailId=0;
+function openDetail(id){
+  const s=S.scenes.find(x=>x.id===id);if(!s)return;
+  detailId=id;
+  const v=x=>{const t=cut2(x).trim();return t?esc(t):'<i class="nv">—</i>'};
+  const pg=num(s.pages)!==null?`${fmt(s.pages)} 页`:(s.pnote?esc(s.pnote):'');
+  $('#ddTitle').textContent=`第${s.ep}集 · ${s.sc}场`;
+  const ph=$('#ddPhoto').firstElementChild;
+  $('#ddPhoto').hidden=!s.photo;$('#ddlg').classList.toggle('hasPhoto',!!s.photo);
+  if(s.photo)ph.src=phSrc(s.photo);else ph.removeAttribute('src');
+  $('#ddGrid').innerHTML=[['集数',s.ep?`第${s.ep}集`:v('')],['场号',v(s.sc)],['页数',pg||'<i class="nv">—</i>'],['日夜',v(s.light)],['内外',v(s.place)],['主场景',v(s.main),1],['次场景',v(s.sub),1]]
+    .map(([k,h,w])=>`<div class="${w?'wide':''}"><span>${k}</span><b>${h}</b></div>`).join('');
+  $('#ddSum').innerHTML=v(s.summary);
+  const cast=S.roles.filter(r=>s.cast[r]);
+  $('#ddCastLab').textContent=`有戏份的角色(${cast.length})`;
+  $('#ddCast').innerHTML=cast.length?cast.map(r=>`<span class="chip rc ${r===PINK?'pink':''}">${esc(r)}</span>`).join(''):'<span class="hint">没有角色戏份</span>';
+  $('#ddEdit').hidden=!ADMIN;
+  $('#ddBack').hidden=!FROMROLE;if(FROMROLE){$('#ddBack').textContent='← 返回列表';$('#ddBack').title='返回「'+FROMROLE+'」的场次列表'}
+  $('#ddlg').showModal();
+}
+$('#ddPhoto').firstElementChild.onclick=e=>showBig(e.target.getAttribute('src'));
+$('#ddClose').onclick=()=>{FROMROLE='';$('#ddlg').close()}; // 「关闭」=全部关掉
+$('#ddBack').onclick=()=>$('#ddlg').close(); // 「返回」=回到那个角色的场次列表
+$('#ddlg').addEventListener('close',()=>{if(FROMROLE){const r=FROMROLE;FROMROLE='';openRole(r)}});
+$('#ddEdit').onclick=()=>{FROMROLE='';$('#ddlg').close();openScene(detailId)};
+$('#ddlg').addEventListener('click',e=>{
+  const r=$('#ddlg').getBoundingClientRect();
+  if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)$('#ddlg').close(); // 点到视窗外的暗处才关闭
+});
+
+/* ---- manage dialog ---- */
+const LAB={light:'景光',place:'景别(地点)',main:'主场景',sub:'次场景'};
+const lists={light:[],place:[],main:[],sub:[]}; // 管理窗里各栏当前列出的选项(预设 + 场次里出现过的)
+function drawManage(){
+  let h=`<b>角色</b><div class="opt">`+S.roles.map((r,i)=>`<span class="chip">${esc(r)}<button class="rn" data-ren="${i}" title="改名">✎</button><button data-delr="${i}" title="删除">✕</button></span>`).join('')+`</div>
+   <div class="add"><input id="newRole" placeholder="新增角色名称"><button data-addr>新增</button></div>
+   <p class="hint">改名会同步更新所有场次;删除角色会一并移除该角色在各场次的纪录。</p>`;
+  for(const f of ['light','place','main','sub'])
+    h+=`<hr style="border:0;border-top:1px solid var(--line);margin:14px 0"><b>${LAB[f]}选项</b><div class="opt">`+
+    (lists[f]=options(f)).map((o,i)=>`<span class="chip">${esc(o)}<button class="rn" data-reno="${f}|${i}" title="改名">✎</button>${(S.opts[f]||[]).includes(o)?`<button data-delo="${f}|${i}" title="删除">✕</button>`:''}</span>`).join('')+
+    `</div><div class="add"><input data-newo="${f}" placeholder="新增${LAB[f]}选项"><button data-addo="${f}">新增</button></div>
+    <div class="hint">场次里出现过的值会自动列在这里;改名会同步更新所有场次,只有手动新增的选项才能删除。</div>`;
+  $('#mBody').innerHTML=h;
+  const B=$('#mBody');
+  B.querySelector('[data-addr]').onclick=()=>{const v=$('#newRole').value.trim();if(!v)return;if(S.roles.includes(v))return alert('已有这个角色');S.roles.push(v);save();drawManage();render()};
+  $('#newRole').onkeydown=e=>{if(e.key==='Enter')B.querySelector('[data-addr]').click()};
+  B.querySelectorAll('[data-ren]').forEach(b=>b.onclick=()=>{
+    const old=S.roles[+b.dataset.ren],n=(prompt('新名称',old)||'').trim();
+    if(!n||n===old)return;if(S.roles.includes(n))return alert('已有这个角色');
+    S.roles[+b.dataset.ren]=n;S.scenes.forEach(s=>{if(old in s.cast){s.cast[n]=s.cast[old];delete s.cast[old]}});save();drawManage();render()});
+  B.querySelectorAll('[data-delr]').forEach(b=>b.onclick=()=>{
+    const r=S.roles[+b.dataset.delr];if(!confirm(`删除角色「${r}」?各场次中的纪录也会移除。`))return;
+    S.roles.splice(+b.dataset.delr,1);S.scenes.forEach(s=>delete s.cast[r]);save();drawManage();render()});
+  B.querySelectorAll('[data-addo]').forEach(b=>b.onclick=()=>{
+    const f=b.dataset.addo,i=B.querySelector(`[data-newo="${f}"]`),v=i.value.trim();if(!v)return;
+    if(!S.opts[f].includes(v))S.opts[f].push(v);save();drawManage();render()});
+  B.querySelectorAll('[data-newo]').forEach(i=>i.onkeydown=e=>{if(e.key==='Enter')B.querySelector(`[data-addo="${i.dataset.newo}"]`).click()});
+  B.querySelectorAll('[data-delo]').forEach(b=>b.onclick=()=>{
+    const[f,i]=b.dataset.delo.split('|'),o=lists[f][+i];
+    S.opts[f]=S.opts[f].filter(x=>x!==o);save();drawManage();render()});
+  // 改名:同步改掉所有场次里用到这个名称的地方;若新名称已存在则合并
+  B.querySelectorAll('[data-reno]').forEach(b=>b.onclick=()=>{
+    const[f,i]=b.dataset.reno.split('|'),old=lists[f][+i];
+    const n=(prompt(`${LAB[f]}改名`,old)||'').trim();
+    if(!n||n===old)return;
+    if(lists[f].includes(n)&&!confirm(`「${n}」已经存在。要把「${old}」合并成「${n}」吗?`))return;
+    S.opts[f]=uniq((S.opts[f]||[]).map(x=>x===old?n:x));
+    S.scenes.forEach(s=>{if(cut(s[f])===old)s[f]=n});
+    save();drawManage();render()});
+}
+/* 管理窗里的新增/改名/删除会立刻生效;「取消」= 放弃这次打开窗口后做的所有改动 */
+let manageSnap=null;
+$('#manage').onclick=()=>{
+  let raw=null;try{raw=localStorage.getItem(KEY)}catch(_){}
+  manageSnap={data:JSON.stringify(S),raw,saved:$('#saved').textContent};
+  drawManage();$('#mdlg').showModal();
+};
+$('#mClose').onclick=()=>{manageSnap=null;$('#mdlg').close()};
+$('#mCancel').onclick=()=>{
+  if(manageSnap){
+    S=JSON.parse(manageSnap.data);
+    if(SERVER){save()} // 窗口里的每个动作都已同步出去,取消就把原来的内容再同步回去
+    else{
+      try{manageSnap.raw===null?localStorage.removeItem(KEY):localStorage.setItem(KEY,manageSnap.raw)}catch(_){}
+      $('#saved').textContent=manageSnap.saved;
+    }
+    manageSnap=null;render();
+  }
+  $('#mdlg').close();
+};
+
+/* ---- tabs / filters ---- */
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{tab=b.dataset.t;PIE=false;EPV=false;COV=false;CV=false;SCH=false;render()});
+
+/* ---- 排版切换:电脑版(表格)/ 手机版(卡片),默认电脑版,记住选择 ---- */
+let VIEW='table';
+try{if(localStorage.getItem('fbq-view')==='card')VIEW='card'}catch(_){}
+function applyView(){
+  document.body.classList.toggle('mview',VIEW==='card');
+  document.querySelectorAll('.vsw button').forEach(b=>b.classList.toggle('on',b.dataset.v===VIEW));
+}
+document.querySelectorAll('.vsw button').forEach(b=>b.onclick=()=>{
+  PIE=false;EPV=false;CV=false; // 电脑版/手机版永远是长条图
+  VIEW=b.dataset.v;try{localStorage.setItem('fbq-view',VIEW)}catch(_){}
+  applyView();render();
+});
+applyView();
+
+/* ---- 拍摄日期:日历选择(取代很长的下拉选单) ---- */
+const dTok=str=>(String(str||'').match(/\d{1,2}\.\d{1,2}/g)||[]).map(t=>{const[a,b]=t.split('.');return+a*100+ +b});
+function dateHas(str,iso){const t=dTok(str);if(!t.length)return false;const[,m,d]=iso.split('-');const v=+m*100+ +d;return t.length===1?t[0]===v:(v>=Math.min(...t)&&v<=Math.max(...t))}
+let CAL={y:YEAR,m:10},CALM='scenes'; // CALM:日历用在哪一页('scenes' 场次表 / 'plan' 大计划日程);拍摄日期可以复选
+const calSel=()=>CALM==='plan'?[...SCHF.dates]:($('#fDate').value?$('#fDate').value.split(','):[]);
+function calCnt(iso){if(CALM==='plan'){const[,m,d]=iso.split('-');return PLAN.scenes.filter(s=>PLAN.days[s.day].m===+m&&PLAN.days[s.day].d===+d).length}return S.scenes.filter(s=>dateHas(s.date,iso)).length}
+function calBounds(){if(CALM==='plan'){const ms=PLAN.days.map(d=>d.m);return[Math.min(...ms),Math.max(...ms)]}const all=S.scenes.flatMap(s=>dTok(s.date));if(!all.length){const n=new Date();return[(n.getMonth()+1),(n.getMonth()+1)]}return[Math.floor(Math.min(...all)/100),Math.floor(Math.max(...all)/100)]}
+const calText=a=>!a.length?'全部':a.length<=2?a.map(v=>`${+v.slice(5,7)}/${+v.slice(8)}`).join('、'):`已选 ${a.length} 天`;
+function calLabel(){const a=calSel(),b=CALM==='plan'?$('#sDayBtn'):$('#fDateBtn');if(b){b.textContent=calText(a);b.classList.toggle('set',!!a.length)}}
+function calApply(a){a.sort();if(CALM==='plan'){SCHF.dates=a;schList()}else{$('#fDate').value=a.join(',');render()}calLabel()}
+function drawCal(){
+  const[mn,mx]=calBounds();if(CAL.m<mn)CAL.m=mn;if(CAL.m>mx)CAL.m=mx;
+  const first=new Date(YEAR,CAL.m-1,1).getDay(),n=new Date(YEAR,CAL.m,0).getDate(),cur=calSel();
+  $('#calTitle').textContent=`${YEAR}年 ${CAL.m}月`;
+  $('#calPrev').disabled=CAL.m<=mn;$('#calNext').disabled=CAL.m>=mx;
+  let h='';for(let i=0;i<first;i++)h+='<span></span>';
+  for(let d=1;d<=n;d++){
+    const iso=`${YEAR}-${pad(CAL.m)}-${pad(d)}`,c=calCnt(iso);
+    h+=`<button type="button" class="cd ${c?'has':''} ${cur.includes(iso)?'on':''}" data-d="${iso}" ${c?'':'disabled'}>${d}${c?`<i>${c}</i>`:''}</button>`;
+  }
+  $('#calGrid').innerHTML=h;
+  $('#calGrid').querySelectorAll('.cd.has').forEach(b=>b.onclick=()=>{const a=calSel(),k=b.dataset.d;calApply(a.includes(k)?a.filter(x=>x!==k):[...a,k]);drawCal()}); // 点一下选取,再点一下取消,可以选很多天
+  $('#calSel').textContent=cur.length?`已选 ${cur.length} 天:${cur.slice(0,6).map(v=>`${+v.slice(5,7)}/${+v.slice(8)}`).join('、')}${cur.length>6?'…':''}`:'还没有选日期(显示全部)';
+}
+function openCal(mode){CALM=mode;const a=calSel();if(a.length)CAL.m=+a[0].slice(5,7);else{const[mn,mx]=calBounds();CAL.m=mode==='plan'?Math.min(mx,Math.max(mn,new Date().getMonth()+1)):mx}drawCal();$('#calDlg').showModal()}
+$('#fDateBtn').onclick=()=>openCal('scenes');
+$('#calPrev').onclick=()=>{CAL.m--;drawCal()};$('#calNext').onclick=()=>{CAL.m++;drawCal()};
+$('#calClear').onclick=()=>{calApply([]);drawCal()};
+$('#calClose').onclick=()=>$('#calDlg').close();
+/* ---- 集数:弹出小视窗,可以复选 ---- */
+var EPM='scenes';
+function epSel(){return EPM==='plan'?[...SCHF.eps]:($('#fEp').value?$('#fEp').value.split(',').map(Number):[])}
+function epAll(){return [...new Set((EPM==='plan'?[...PLAN.scenes,...planAdded()]:S.scenes).map(s=>+s.ep))].sort((a,b)=>a-b)}
+function epCnt(e){return (EPM==='plan'?[...PLAN.scenes,...planAdded()]:S.scenes).filter(s=>+s.ep===e).length}
+function epLabel(){const set=(b,a)=>{if(b){b.textContent=!a.length?'全部':a.length<=3?a.map(e=>`第${e}集`).join('、'):`已选 ${a.length} 集`;b.classList.toggle('set',!!a.length)}};set($('#fEpBtn'),$('#fEp').value?$('#fEp').value.split(',').map(Number):[]);set($('#sEpBtn'),SCHF.eps)}
+function epApply(a){a.sort((x,y)=>x-y);if(EPM==='plan'){SCHF.eps=a;schList()}else{$('#fEp').value=a.join(',');render()}epLabel()}
+function drawEp(){const cur=epSel();
+  $('#epGrid').innerHTML=epAll().map(e=>`<button type="button" class="cd has ${cur.includes(e)?'on':''}" data-e="${e}">${e}<i>${epCnt(e)}</i></button>`).join('');
+  $('#epGrid').querySelectorAll('.cd').forEach(b=>b.onclick=()=>{const a=epSel(),k=+b.dataset.e;epApply(a.includes(k)?a.filter(x=>x!==k):[...a,k]);drawEp()});
+  $('#epSel').textContent=cur.length?`已选 ${cur.length} 集:${cur.slice(0,10).join('、')}${cur.length>10?'…':''}`:'还没有选集数(显示全部)'}
+function openEp(mode){EPM=mode;drawEp();$('#epDlg').showModal()}
+$('#fEpBtn').onclick=()=>openEp('scenes');
+/* ---- 角色:小视窗复选,选多位=只看这几位同时出场的场次 ---- */
+var ROM='scenes';
+function roSel(){return ROM==='plan'?[...SCHF.roles]:($('#fRole').value?$('#fRole').value.split('|'):[])}
+function roAll(){return ROM==='plan'?PLAN.roles:S.roles}
+function roCnt(r){return ROM==='plan'?PLAN.scenes.filter(s=>s.cast.includes(r)).length:S.scenes.filter(s=>s.cast[r]===1).length}
+function roLabel(){const set=(b,a)=>{if(b){b.textContent=!a.length?'全部':a.length<=2?a.join('+'):`已选 ${a.length} 位`;b.classList.toggle('set',!!a.length)}};set($('#fRoBtn'),$('#fRole').value?$('#fRole').value.split('|'):[]);set($('#sRoBtn'),SCHF.roles)}
+function roApply(a){if(ROM==='plan'){SCHF.roles=a;schList()}else{$('#fRole').value=a.join('|');render()}roLabel()}
+function drawRo(){const cur=roSel();
+  $('#roGrid').innerHTML=roAll().map(r=>`<button type="button" class="${cur.includes(r)?'on':''}" data-r="${esc(r)}">${esc(r)}<i>${roCnt(r)}</i></button>`).join('');
+  $('#roGrid').querySelectorAll('button').forEach(b=>b.onclick=()=>{const a=roSel(),k=b.dataset.r;roApply(a.includes(k)?a.filter(x=>x!==k):[...a,k]);drawRo()});
+  $('#roSel').textContent=cur.length?`已选 ${cur.length} 位:${cur.join('、')}${cur.length>1?'(同时出现)':''}`:'还没有选角色(显示全部)'}
+function openRo(mode){ROM=mode;drawRo();$('#roDlg').showModal()}
+$('#fRoBtn').onclick=()=>openRo('scenes');
+$('#roClear').onclick=()=>{roApply([]);drawRo()};$('#roClose').onclick=()=>$('#roDlg').close();
+$('#epClear').onclick=()=>{epApply([]);drawEp()};$('#epClose').onclick=()=>$('#epDlg').close();
+['fDate'].forEach(i=>$('#'+i).onchange=render);$('#fQ').oninput=render;$('#fPhoto').onchange=render;
+/* ---- import / export ---- */
+function dl(name,text,type){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+$('#exp').onclick=()=>dl('data.json',JSON.stringify(S,null,1),'application/json');
+$('#csv').onclick=()=>{
+  const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+  const head=['拍摄日期','集数','场号','景光','景别','主场景','次场景','内容概要','页数',...S.roles];
+  const lines=[head.map(q).join(',')];
+  sorted().forEach(s=>lines.push([s.date,s.ep,s.sc,s.light,s.place,cut(s.main),cut(s.sub),cut(s.summary),num(s.pages)!==null?s.pages:s.pnote,...S.roles.map(r=>s.cast[r]===1?s.pages:'')].map(q).join(',')));
+  const tot=S.roles.map(r=>fmt(S.scenes.reduce((a,s)=>a+pageOf(s,r),0)));
+  lines.push(['合计','','','','','','','',fmt(S.scenes.reduce((a,s)=>a+(num(s.pages)||0),0)),...tot].map(q).join(','));
+  dl('戏份盘点.csv','﻿'+lines.join('\r\n'),'text/csv');
+};
+$('#imp').onclick=()=>$('#file').click();
+$('#file').onchange=async e=>{
+  const f=e.target.files[0];if(!f)return;
+  try{const d=JSON.parse(await f.text());if(!Array.isArray(d.roles)||!Array.isArray(d.scenes))throw 0;
+    if(!confirm('导入会取代目前此浏览器中的资料,确定吗?'))return;
+    S=Object.assign({opts:{light:[],place:[],main:[],sub:[]}},d);commit()}
+  catch(_){alert('档案格式不正确')}
+  e.target.value='';
+};
+$('#reset').onclick=()=>{if(confirm('清除此浏览器中的修改,还原为网站上的 data.json?'))
+  {try{localStorage.removeItem(KEY)}catch(e){}$('#saved').textContent='';load()}};
+
+/* ---- admin login ---- */
+/* 注意:这是纯前端的登录,只是隐藏编辑功能;账号密码以哈希形式存放在网页里。 */
+const AUTH='2d64c3532ae8a4ae12bc97dbcb25dc01a314b712d3ec04ce15394bcf9f7d40d3';
+function sha256(s){
+  const K=[];let p=2;while(K.length<64){let ok=true;for(let i=2;i*i<=p;i++)if(p%i===0){ok=false;break}if(ok)K.push(Math.floor((Math.cbrt(p)%1)*4294967296));p++}
+  let H=[];p=2;while(H.length<8){let ok=true;for(let i=2;i*i<=p;i++)if(p%i===0){ok=false;break}if(ok)H.push(Math.floor((Math.sqrt(p)%1)*4294967296));p++}
+  const b=Array.from(new TextEncoder().encode(s)),l=b.length*8;b.push(0x80);while(b.length%64!==56)b.push(0);
+  for(let i=7;i>=0;i--)b.push(i>3?0:(l>>>(i*8))&255);
+  const R=(x,n)=>(x>>>n)|(x<<(32-n));
+  for(let o=0;o<b.length;o+=64){
+    const w=[];for(let i=0;i<16;i++)w[i]=(b[o+i*4]<<24)|(b[o+i*4+1]<<16)|(b[o+i*4+2]<<8)|b[o+i*4+3];
+    for(let i=16;i<64;i++){const s0=R(w[i-15],7)^R(w[i-15],18)^(w[i-15]>>>3),s1=R(w[i-2],17)^R(w[i-2],19)^(w[i-2]>>>10);w[i]=(w[i-16]+s0+w[i-7]+s1)|0}
+    let [a,c,d,e,f,g,h2,j]=H;
+    for(let i=0;i<64;i++){const S1=R(f,6)^R(f,11)^R(f,25),ch=(f&g)^(~f&h2),t1=(j+S1+ch+K[i]+w[i])|0,S0=R(a,2)^R(a,13)^R(a,22),mj=(a&c)^(a&d)^(c&d),t2=(S0+mj)|0;
+      j=h2;h2=g;g=f;f=(e+t1)|0;e=d;d=c;c=a;a=(t1+t2)|0}
+    H=[H[0]+a,H[1]+c,H[2]+d,H[3]+e,H[4]+f,H[5]+g,H[6]+h2,H[7]+j].map(x=>x|0);
+  }
+  return H.map(x=>(x>>>0).toString(16).padStart(8,'0')).join('');
+}
+$('#login').onclick=()=>{$('#lform').reset();$('#lerr').textContent='';$('#tokRow').hidden=!(GHMODE&&!GHTOK&&!S.sec);$('#ldlg').showModal()};
+$('#lCancel').onclick=()=>$('#ldlg').close();
+const makeTok=(u,p)=>btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify({u,p}))));
+$('#lform').onsubmit=async e=>{
+  e.preventDefault();const f=e.target,u=f.u.value.trim(),p=f.p.value;
+  if(SERVER){ // 有数据库:账号密码交给服务器验证(网页里不存放密码)
+    $('#lerr').textContent='验证中…';
+    try{
+      const r=await fetch('/api/login',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({u,p})});
+      if(r.ok){
+        TOK=makeTok(u,p);ADMIN=true;
+        try{sessionStorage.setItem('fbq-admin','1');sessionStorage.setItem('fbq-tok',TOK)}catch(_){}
+        $('#ldlg').close();render();
+      }else if(r.status===401)$('#lerr').textContent='账号或密码不正确';
+      else $('#lerr').textContent='服务器还没有设定管理员账号密码(请到 Cloudflare 后台设定)';
+    }catch(_){$('#lerr').textContent='连不上服务器,请稍后再试'}
+    return;
+  }
+  if(GHMODE){ // GitHub 模式:账号密码通过后,还要有能写入仓库的令牌
+    if(sha256(u+'|'+p)!==AUTH){$('#lerr').textContent='账号或密码不正确';return}
+    const typed=(f.t.value||'').trim();
+    $('#lerr').textContent='验证中…';
+    let t=typed||GHTOK;
+    if(!t&&S.sec)t=await secOpen(S.sec,u+'|'+p)||''; // 其他管理员:用账号密码解开已存的令牌
+    if(!t){$('#tokRow').hidden=false;$('#lerr').textContent=S.sec?'无法取得令牌,请找仓库主人重新设定':'请填入 GitHub 令牌(仓库主人第一次登录时设定)';return}
+    try{
+      const r=await fetch('https://api.github.com/repos/'+GH_REPO,{headers:{accept:'application/vnd.github+json',authorization:'Bearer '+t}});
+      const j=r.ok?await r.json():null;
+      if(!j||!j.permissions||!j.permissions.push){$('#tokRow').hidden=false;$('#lerr').textContent='这个令牌不能写入仓库,请检查权限(Contents: Read and write)';return}
+      GHTOK=t;try{localStorage.setItem('fbq-gh',t)}catch(_){}
+      ADMIN=true;try{sessionStorage.setItem('fbq-admin','1')}catch(_){}
+      if(typed){S.sec=await secSeal(t,u+'|'+p);save()} // 主人输入令牌时,加密存起来给其他管理员用
+      $('#ldlg').close();render();
+    }catch(_){$('#lerr').textContent='连不上 GitHub,请稍后再试'}
+    return;
+  }
+  if(sha256(u+'|'+p)===AUTH){ // 没有数据库时的旧做法(只在这个浏览器里有效)
+    ADMIN=true;try{sessionStorage.setItem('fbq-admin','1')}catch(_){}
+    $('#ldlg').close();render();
+  }else $('#lerr').textContent='账号或密码不正确';
+};
+function doLogout(){ADMIN=false;TOK='';try{sessionStorage.removeItem('fbq-admin');sessionStorage.removeItem('fbq-tok')}catch(_){}render()}
+$('#logout').onclick=doLogout;
+try{ADMIN=sessionStorage.getItem('fbq-admin')==='1'}catch(_){}
+
+load();
+
+if('serviceWorker' in navigator&&location.protocol!=='file:'){
+  const hadCtl=!!navigator.serviceWorker.controller;let reloaded=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(hadCtl&&!reloaded){reloaded=true;location.reload()}}); // 网站有新版本:自动重新载入一次,不用手动关掉再开
+  window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').then(r=>r.update()).catch(()=>{}));
+}
+</script>
+</body>
+</html>
