@@ -565,7 +565,7 @@ body.mview .card>.bar .datebtn{font-size:14px;line-height:19px;padding:7px 6px}
 <datalist id="l-date"></datalist><datalist id="l-light"></datalist><datalist id="l-place"></datalist><datalist id="l-main"></datalist><datalist id="l-sub"></datalist>
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script id="seed" type="application/json">{"title": "凤不栖戏份盘点", "roles": ["秦长歌/明霜", "萧缺", "玉自熙", "江照薇", "素玄", "楚非欢", "萧探", "苏穆"], "scenes": [], "opts": {"light": [], "place": [], "main": [], "sub": []}}</script>
+<script id="seed" type="application/json">{"title": "凤不栖戏份盘点", "roles": ["秦长歌/明霜", "萧玦", "玉自熙", "江照薇", "素玄", "楚非欢", "萧琛", "苏穆"], "scenes": [], "opts": {"light": [], "place": [], "main": [], "sub": []}}</script>
 <script>
 const KEY='fbq-v1';
 let S={title:'戏份盘点',roles:[],scenes:[],opts:{light:[],place:[],main:[],sub:[]}};
@@ -994,7 +994,7 @@ function epChart(rows){
   const col={},dark=new Set(),taken=new Set(),nb={};
   top.forEach(r=>nb[r]=new Set());eps.forEach(ep=>{const t=topOf(ep);t.forEach(x=>t.forEach(y=>{if(x!==y)nb[x].add(y)}))});
   // 用户在图例上指定的颜色(2026-11-05 上传的图例图),固定不变;新出现的角色才用下面的算法挑色
-  const FIXED={'秦长歌/明霜':'#ff4fa3','萧缺':'#00eaff'};
+  const FIXED={'秦长歌/明霜':'#ff4fa3','萧玦':'#00eaff'};
   top.forEach(r=>{if(FIXED[r]){col[r]=FIXED[r];taken.add(FIXED[r]);if(lab(FIXED[r])[0]>=68)dark.add(FIXED[r])}});
   top.forEach(r=>{
     if(col[r])return;
@@ -1010,7 +1010,7 @@ function epChart(rows){
     const rest=sum-parts.reduce((a,x)=>a+x.p,0);if(rest>0.0001)parts.push({n:'其他',p:rest,c:PIE_OTHER});
     return`<div class="eprow" data-ep="${esc(ep)}" title="点一下放大看是哪些角色"><div class="eplab"><b>第${esc(ep)}集</b><small>${fmt(pages)} 页 · ${rs.length} 场</small></div><div class="epbar">${sum?parts.map(x=>{const pc=x.p/sum*100;return`<div style="flex:${x.p} 1 0;background:${x.c}${dark.has(x.c)?';color:#1b1b1f;text-shadow:none':''}" title="${esc(x.n)} ${fmt(x.p)} 页 · ${pc.toFixed(1)}%">${segLab(x.n,pc)}</div>`}).join(''):'<span style="color:#6f6c68;font-size:11px;padding:0 10px;line-height:26px">这一集还没有页数资料</span>'}</div></div>`;
   }).join('');
-  const PRE=['秦长歌/明霜','萧缺','楚非欢','江照薇','萧探']; // 图例里这五位固定排最前面,其他角色接在后面
+  const PRE=['秦长歌/明霜','萧玦','楚非欢','江照薇','萧琛']; // 图例里这五位固定排最前面,其他角色接在后面
   EPD={perEp,col,dark,topOf,rows,SUR};
   const leg=[...PRE.filter(r=>col[r]),...top.filter(r=>!PRE.includes(r))].map(r=>`<span><i style="background:${col[r]}"></i>${esc(r)}</span>`).join('')+`<span><i style="background:${PIE_OTHER}"></i>其他</span>`;
   return`<div class="epc"><button class="pieback" type="button">← 返回长条图</button><h3>每集戏份分布(按页数)</h3><div class="note"><b>这张图怎么看</b><p>每一条是一集;条里各色块是各角色在这一集的页数占比(该角色页数 ÷ 这一集所有角色页数加总)。每一集只给页数最多的前 5 位角色上色(同一个角色颜色固定),其余角色合并成灰色。</p><p>色块越宽,代表那个角色在这一集的戏越重;鼠标移上去(手机长按)可以看到页数。左边的页数和场次数是这一集的实际总量。点任一集的长条,可以放大看每位角色的名字。</p></div>
@@ -1058,7 +1058,7 @@ function coHTML(all,roles,lead,selId){
   const solo=mine.filter(x=>x.cast.size===1),sn=solo.length,sp=solo.reduce((a,x)=>a+(x.p||0),0);
   const row=(label,n,p)=>{const ps=mn?n/mn*100:0,pp=mp?p/mp*100:0;return`<div class="st-card"><div class="h"><b>${esc(label)}</b></div><div class="r"><span>场次</span><strong>${n}</strong><em>${ps.toFixed(1)}%</em></div>${bar(ps)}<div class="r"><span>页数</span><strong>${fmt(p)}</strong><em>${pp.toFixed(1)}%</em></div>${bar(pp)}</div>`};
   return `<h3 style="margin:14px 0 6px;font-size:16px">角色对戏占比<small style="margin-left:8px;color:var(--mute);font-weight:400">谁跟谁一起出场</small></h3>
-  <div class="note" style="margin:0 0 10px"><p class="coq"><select id="${selId}" class="rolesel">${(()=>{const top=['秦长歌/明霜','萧缺'].filter(r=>roles.includes(r));return[...top,...roles.filter(r=>!top.includes(r))]})().map(r=>`<option ${r===lead?'selected':''}>${esc(r)}</option>`).join('')}</select><span>的戏,有多少和别的角色同场。</span></p>
+  <div class="note" style="margin:0 0 10px"><p class="coq"><select id="${selId}" class="rolesel">${(()=>{const top=['秦长歌/明霜','萧玦'].filter(r=>roles.includes(r));return[...top,...roles.filter(r=>!top.includes(r))]})().map(r=>`<option ${r===lead?'selected':''}>${esc(r)}</option>`).join('')}</select><span>的戏,有多少和别的角色同场。</span></p>
   <p>该角色共有 <span class="hl">${mn}</span> 场、<span class="hl">${fmt(mp)}</span> 页。占比 = 和某角色同场的场次(页数)÷ 她自己的总场次(页数)。一场里有好几个人时,每个人各算一次,所以占比加起来会超过 100%。</p></div>
   <div class="mcards copage">${row('只有 TA 一人(没有其他角色)',sn,sp)}${co.map(x=>row('和 '+x.r+' 同场',x.n,x.p)).join('')}</div>`;
 }
