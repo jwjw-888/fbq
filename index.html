@@ -442,6 +442,7 @@ body.mview .card>.bar .datebtn{font-size:14px;line-height:19px;padding:7px 6px}
 .banner header{padding:calc(env(safe-area-inset-top) + 18px) 20px 14px!important;flex-direction:row!important;align-items:center!important}
 .pchk[hidden]{display:none!important}
 .chip,.rname,td a,td button{white-space:nowrap}
+.sum div:nth-child(4) b{white-space:nowrap;font-size:14px}@media(max-width:560px){.sum div:nth-child(4) b{font-size:11px}}
 </style>
 </head>
 <body>
@@ -575,6 +576,8 @@ const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fmt=n=>(Math.round(n*100)/100).toString();
 const PINK='秦长歌/明霜';
+let STM='excel';
+const STML={excel:'照 Excel 标记',pure:'只有明霜/秦长歌',xian:'含阿弦'};
 const cut=s=>String(s||'').replace(/\n/g,' ');
 
 /* ---- 数据来源 ----
@@ -850,7 +853,7 @@ function render(){
   document.title=S.title||'戏份盘点';
   $('#title').firstChild.textContent=S.title||'戏份盘点';
   fillFilters();
-  const rows=tab==='stats'||tab==='plan'?[...S.scenes]:filtered(); // 统计页不使用筛选,永远统计全部场次
+  const rows=tab==='stats'?statRows([...S.scenes]):tab==='plan'?[...S.scenes]:filtered(); // 统计页不使用筛选,永远统计全部场次
   $('#filterBar').hidden=tab==='stats'||tab==='plan';
   $('#vScenes').hidden=tab!=='scenes';$('#vStats').hidden=tab!=='stats'&&tab!=='plan';
   document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===tab));
@@ -907,7 +910,7 @@ function renderPie(rows){
   const byN=false,unit='页'; // 圆饼图只按页数
   const per=S.roles.map(r=>({r,p:rows.reduce((a,s)=>a+(s.cast[r]===1?(byN?1:(num(s.pages)||0)):0),0)}));
   const sum=per.reduce((a,x)=>a+x.p,0);
-  const scope='全部场次';
+  const scope=STML[STM];
   if(!sum){$('#vStats').innerHTML='<div class="pie"><button class="pieback" type="button">← 返回长条图</button><div class="hint" style="padding:30px 0;text-align:center">这个范围内没有页数资料,无法画圆饼图。</div></div>';return}
   const named=per.filter(x=>x.p>0&&!/配角/.test(x.r)).sort((a,b)=>b.p-a.p);
   const top=named.slice(0,6),rest=sum-top.reduce((a,x)=>a+x.p,0);
@@ -940,10 +943,10 @@ function renderPie(rows){
 let FROMROLE='',CURROLE='';
 function openRole(r){
   CURROLE=r;
-  const list=S.scenes.filter(s=>s.cast[r]===1).sort((a,b)=>a.ep-b.ep||(parseInt(a.sc)||0)-(parseInt(b.sc)||0)||String(a.sc).localeCompare(String(b.sc),'zh',{numeric:true}));
+  const list=(tab==='stats'?statRows(S.scenes):S.scenes).filter(s=>s.cast[r]===1).sort((a,b)=>a.ep-b.ep||(parseInt(a.sc)||0)-(parseInt(b.sc)||0)||String(a.sc).localeCompare(String(b.sc),'zh',{numeric:true}));
   const pg=list.reduce((a,s)=>a+(num(s.pages)||0),0),all=S.scenes.reduce((a,s)=>a+(num(s.pages)||0),0);
   const eps=uniq(list.map(s=>s.ep)).length;
-  $('#rdTitle').textContent=r;
+  $('#rdTitle').textContent=r+(tab==='stats'&&r===PINK&&STM!=='excel'?'('+STML[STM]+')':'');
   $('#rdSum').innerHTML=`<span><b>${list.length}</b> 场</span><span><b>${fmt(pg)}</b> 页</span><span>占整部戏页数 <b>${all?(pg/all*100).toFixed(1):0}%</b></span><span>出现在 <b>${eps}</b> 集</span>`;
   $('#rdList').innerHTML=list.length?list.map(s=>`<div class="rrow" data-id="${s.id}"><b>第${esc(s.ep)}集 ${esc(s.sc)}场</b><span class="pg">${num(s.pages)!==null?fmt(s.pages)+' 页':esc(s.pnote||'')}</span><span class="sm">${esc(cut(s.summary))}</span></div>`).join(''):'<div class="hint" style="padding:16px 2px">这个角色还没有场次。</div>';
   $('#rdlg').showModal();
@@ -1019,6 +1022,16 @@ function epChart(rows){
 document.addEventListener('click',e=>{if(e.target.closest('.coback')){COV=false;CV=false;SCH=false;render()}});
 $('#pieBtn').onclick=()=>{PIE=!PIE;EPV=false;render()}; // 圆饼图自成一页,跟排版无关
 document.addEventListener('click',e=>{if(e.target.closest('.pieback')){PIE=false;EPV=false;tab='stats';render()}});
+/* 凤不栖:秦长歌/明霜 的三种算法。excel=照 Excel 标记;pure=只有明霜/秦长歌(扣掉标「弦」的场次);xian=含阿弦(加上所有有阿弦的场次) */
+function statRows(rows){
+  if(STM==='excel')return rows;
+  return rows.map(s=>{const c={...s.cast};
+    if(STM==='pure'&&s.xq)delete c[PINK];
+    if(STM==='xian'&&s.xian)c[PINK]=1;
+    return{...s,cast:c}});
+}
+function stmBar(){return`<div class="bar sortbar stmbar" style="margin:0 0 12px"><span class="hint">秦长歌/明霜:</span>${Object.entries(STML).map(([k,v])=>`<button class="sortb stmb ${STM===k?'on':''}" data-m="${k}">${v}</button>`).join('')}</div>`}
+function bindStm(){document.querySelectorAll('.stmb').forEach(b=>b.onclick=()=>{STM=b.dataset.m;render()})}
 function renderStats(rows){
   const total=rows.reduce((a,s)=>a+(num(s.pages)||0),0),nsc=rows.length;
   const list=S.roles.map(r=>{
@@ -1026,13 +1039,14 @@ function renderStats(rows){
     rows.forEach(s=>{if(s.cast[r]===1){p+=num(s.pages)||0;n++}});
     return{r,p,n};
   }).sort((a,b)=>sortBy==='n'?(b.n-a.n||b.p-a.p):(b.p-a.p||b.n-a.n));
-  const scope='全部场次';
+  const scope=STML[STM];
   const bar=(pc,pink)=>`<div class="meter"><i style="width:${Math.min(100,pc)}%"></i></div>`;
-  $('#vStats').innerHTML=`<div class="bar sortbar topbtns"><button class="epbtn" type="button">📊 每集戏份分布</button><button class="epbtn cobtn" type="button">🤝 角色对戏占比</button></div>
+  $('#vStats').innerHTML=stmBar()+`<div class="bar sortbar topbtns"><button class="epbtn" type="button">📊 每集戏份分布</button><button class="epbtn cobtn" type="button">🤝 角色对戏占比</button></div>
   <div class="note"><b>长条图的算法</b>
     <p>场次占比 = 该角色有戏的场次数 ÷ 所选范围的总场次数(${nsc} 场)</p>
     <p>页数占比 = 该角色的页数 ÷ 所选范围的总页数(${fmt(total)} 页)</p>
-    <p>一场戏有多位角色时,每位角色都各算一次,所以各角色的占比加起来会超过 100%。它表示「这个角色占了整部戏多少篇幅」。</p></div>
+    <p>一场戏有多位角色时,每位角色都各算一次,所以各角色的占比加起来会超过 100%。它表示「这个角色占了整部戏多少篇幅」。</p>
+    <p>秦长歌/明霜:「照 Excel 标记」= 总表秦长歌栏有填的场次;「只有明霜/秦长歌」= 扣掉秦长歌栏标记有「弦」的场次(阿弦假扮);「含阿弦」= 再加上其他角色栏标「/弦」或概要写到弦的场次。</p></div>
   <div class="sum"><div><b>${nsc}</b><span>总场次</span></div><div><b>${fmt(total)}</b><span>总页数</span></div><div><b>${S.roles.length}</b><span>角色</span></div><div><b>${esc(scope)}</b><span>统计范围</span></div></div>
   <div class="bar sortbar" style="margin-top:14px"><span class="hint">排序:</span><button class="sortb ${sortBy==='p'?'on':''}" data-s="p">按页数</button><button class="sortb ${sortBy==='n'?'on':''}" data-s="n">按场次</button></div>
   <p class="rolehint" style="margin:10px 0 0">💡 <b>点角色名</b>可以看她所有的场次</p>
@@ -1042,7 +1056,7 @@ function renderStats(rows){
   <div class="scroll mtable plbar" style="margin-top:10px"><table><thead><tr><th>#</th><th>角色</th><th class="num">场次</th><th class="num">场次占比</th><th style="width:22%"></th><th class="num">页数</th><th class="num">页数占比</th><th style="width:22%"></th></tr></thead><tbody>`+
   list.map((x,i)=>{const ps=nsc?x.n/nsc*100:0,pp=total?x.p/total*100:0;return`<tr class="${x.r===PINK?'pinkrow':''}"><td>${i+1}</td><td><b class="rolelink" data-role="${esc(x.r)}" title="点一下,看她所有的场次">${x.r.split('/').map(p=>`<span style="white-space:nowrap">${esc(p)}</span>`).join('/<wbr>')}</b></td><td class="num">${x.n}</td><td class="num">${ps.toFixed(1)}%</td><td>${bar(ps)}</td><td class="num">${fmt(x.p)}</td><td class="num">${pp.toFixed(1)}%</td><td>${bar(pp)}</td></tr>`}).join('')+
   `</tbody></table></div>`;
-  document.querySelectorAll('.sortb').forEach(b=>b.onclick=()=>{sortBy=b.dataset.s;render()});
+  document.querySelectorAll('.sortb:not(.stmb)').forEach(b=>b.onclick=()=>{sortBy=b.dataset.s;render()});bindStm();
   document.querySelectorAll('.epbtn:not(.cobtn)').forEach(b=>b.onclick=()=>{EPV=true;PIE=false;render()});
   document.querySelectorAll('.cobtn').forEach(b=>b.onclick=()=>{CV=true;EPV=false;PIE=false;render()});
 }
